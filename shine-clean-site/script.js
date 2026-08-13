@@ -8,6 +8,56 @@
     pt: "Olá! Vi o site e gostaria de um orçamento de limpeza."
   };
 
+  // Decorative floating bubbles — position/size/gradient/animation ported 1:1
+  // from the original Designer prototype, per section.
+  function bub(pos, size, stops, borderA, anim, dur, delay) {
+    const style = `${pos}; width:${size}px; height:${size}px; ` +
+      `background:radial-gradient(circle at 30% 25%, ${stops}); ` +
+      `--bub-border:${borderA}; --bub-name:${anim}; --bub-dur:${dur}s; --bub-delay:${delay || 0}s;`;
+    return `<div class="bubble" style="${style}"></div>`;
+  }
+
+  const BUBBLES = {
+    hero: [
+      bub("right:10%; top:16%", 30, "rgba(255,255,255,0.8), rgba(253,190,2,0.15) 40%, rgba(236,93,137,0.1) 70%, rgba(129,50,223,0.06)", 0.4, "bub1", 5),
+      bub("right:20%; top:45%", 18, "rgba(255,255,255,0.7), rgba(110,232,91,0.1) 40%, rgba(97,236,250,0.08) 70%, transparent", 0.3, "bub2", 6.5, 0.8),
+      bub("right:5%; top:60%", 14, "rgba(255,255,255,0.6), rgba(236,93,137,0.1) 50%, transparent", 0.25, "bub3", 7, 1.5),
+      bub("left:12%; top:28%", 22, "rgba(255,255,255,0.7), rgba(129,50,223,0.08) 40%, rgba(97,236,250,0.06) 70%, transparent", 0.3, "bub2", 7.5, 0.5),
+      bub("right:35%; top:10%", 10, "rgba(255,255,255,0.7), rgba(253,190,2,0.12) 50%, transparent", 0.2, "bub1", 8, 2.2),
+      bub("right:42%; bottom:12%", 20, "rgba(255,255,255,0.65), rgba(253,190,2,0.08) 40%, rgba(236,93,137,0.06) 70%, transparent", 0.25, "bub3", 6, 3)
+    ],
+    about: [
+      bub("right:4%; top:18%", 22, "rgba(255,255,255,0.7), rgba(253,190,2,0.12) 40%, rgba(236,93,137,0.06) 70%, transparent", 0.3, "bub2", 7, 0.5),
+      bub("left:6%; bottom:15%", 14, "rgba(255,255,255,0.6), rgba(129,50,223,0.08) 50%, transparent", 0.2, "bub1", 6, 1.8)
+    ],
+    services: [
+      bub("left:2%; top:12%", 26, "rgba(255,255,255,0.7), rgba(110,232,91,0.1) 40%, rgba(97,236,250,0.06) 70%, transparent", 0.3, "bub3", 6.5),
+      bub("right:3%; top:55%", 16, "rgba(255,255,255,0.6), rgba(236,93,137,0.08) 50%, transparent", 0.25, "bub1", 7.5, 1.2)
+    ],
+    area: [
+      bub("right:8%; top:20%", 24, "rgba(255,255,255,0.2), rgba(253,190,2,0.08) 40%, rgba(236,93,137,0.05) 70%, transparent", 0.12, "bub1", 6),
+      bub("left:10%; bottom:25%", 16, "rgba(255,255,255,0.15), rgba(129,50,223,0.06) 50%, transparent", 0.1, "bub2", 7, 1)
+    ],
+    how: [
+      bub("right:6%; top:15%", 22, "rgba(255,255,255,0.7), rgba(253,190,2,0.1) 40%, rgba(129,50,223,0.06) 70%, transparent", 0.3, "bub1", 5.5, 0.3),
+      bub("left:4%; bottom:22%", 15, "rgba(255,255,255,0.6), rgba(97,236,250,0.1) 50%, transparent", 0.25, "bub3", 7, 1.5)
+    ],
+    why: [
+      bub("right:3%; top:30%", 18, "rgba(255,255,255,0.65), rgba(236,93,137,0.1) 40%, rgba(129,50,223,0.06) 70%, transparent", 0.25, "bub2", 6, 0.7),
+      bub("left:6%; top:65%", 12, "rgba(255,255,255,0.6), rgba(253,190,2,0.08) 50%, transparent", 0.2, "bub1", 7.5, 2)
+    ],
+    testimonials: [
+      bub("left:3%; top:18%", 20, "rgba(255,255,255,0.7), rgba(110,232,91,0.08) 40%, rgba(97,236,250,0.06) 70%, transparent", 0.3, "bub3", 6.5, 0.4),
+      bub("right:5%; bottom:25%", 14, "rgba(255,255,255,0.6), rgba(236,93,137,0.08) 50%, transparent", 0.25, "bub1", 5.5, 1.6)
+    ],
+    finalCta: [
+      bub("left:8%; top:15%; z-index:2", 26, "rgba(255,255,255,0.35), rgba(255,255,255,0.08) 50%, transparent", 0.2, "bub1", 6),
+      bub("right:12%; top:25%; z-index:2", 18, "rgba(255,255,255,0.3), rgba(255,255,255,0.06) 50%, transparent", 0.15, "bub2", 7, 1),
+      bub("left:25%; bottom:20%; z-index:2", 12, "rgba(255,255,255,0.25), transparent 60%", 0.12, "bub3", 5.5, 2),
+      bub("right:30%; bottom:10%; z-index:2", 16, "rgba(255,255,255,0.3), transparent 60%", 0.15, "bub1", 8, 3)
+    ]
+  };
+
   const ICON = {
     whatsapp:
       '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.9 14.2c-.25.7-1.45 1.34-2 1.42-.53.08-1.2.11-1.94-.12a15 15 0 0 1-1.76-.65 11.5 11.5 0 0 1-4.4-3.9c-.33-.44-.85-1.28-.85-2.44 0-1.16.6-1.73.82-1.97a.86.86 0 0 1 .62-.29h.44c.14 0 .33-.05.52.4.2.48.66 1.66.72 1.78.06.12.1.26.02.42-.08.16-.12.26-.24.4l-.36.42c-.12.12-.24.25-.1.49.13.24.6.98 1.28 1.59.88.78 1.62 1.02 1.86 1.14.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.58-.19 1.28z"/></svg>',
@@ -221,17 +271,14 @@
     el.innerHTML = `
       <div class="deco-circle" style="right:-120px; top:-60px; width:400px; height:400px; background:linear-gradient(135deg, rgba(253,190,2,0.12), rgba(236,93,137,0.08));"></div>
       <div class="deco-circle" style="left:-80px; bottom:-40px; width:220px; height:220px; background:linear-gradient(135deg, rgba(129,50,223,0.06), rgba(97,236,250,0.06));"></div>
-      <div class="bubble bubble--1" style="right:10%; top:16%; width:30px; height:30px; background:radial-gradient(circle at 30% 25%, rgba(255,255,255,0.8), rgba(253,190,2,0.15) 40%, rgba(236,93,137,0.1) 70%, rgba(129,50,223,0.06));"></div>
-      <div class="bubble bubble--2" style="right:20%; top:45%; width:18px; height:18px; background:radial-gradient(circle at 30% 25%, rgba(255,255,255,0.7), rgba(110,232,91,0.1) 40%, rgba(97,236,250,0.08) 70%, transparent);"></div>
-      <div class="bubble bubble--3" style="right:5%; top:60%; width:14px; height:14px; background:radial-gradient(circle at 30% 25%, rgba(255,255,255,0.6), rgba(236,93,137,0.1) 50%, transparent);"></div>
-      <div class="bubble bubble--2" style="left:12%; top:28%; width:22px; height:22px; background:radial-gradient(circle at 30% 25%, rgba(255,255,255,0.7), rgba(129,50,223,0.08) 40%, rgba(97,236,250,0.06) 70%, transparent);"></div>
+      ${BUBBLES.hero.join("")}
       <div class="section__inner hero__inner">
         <div class="hero__content">
           <span class="badge">${t.heroBadge}</span>
           <h1>${t.heroHeadline}</h1>
           <p class="hero__sub">${t.heroSub}</p>
           <div class="hero__cta-row">
-            ${waBtn({ cls: "btn btn--lg", label: t.heroCta })}
+            ${waBtn({ cls: "btn btn--lg btn--shimmer", label: t.heroCta })}
             <span class="hero__note">${t.heroNote}</span>
           </div>
         </div>
@@ -243,6 +290,7 @@
   function renderAbout(t) {
     const el = document.getElementById("about");
     el.innerHTML = `
+      ${BUBBLES.about.join("")}
       <div class="section__inner about-grid">
         <figure class="photo-slot" role="img" aria-label="${t.photoAlt}" style="margin:0;">
           ${ICON.camera}
@@ -266,6 +314,7 @@
         <div><h4>${t[s.key + "t"]}</h4><p>${t[s.key + "d"]}</p></div>
       </div>`).join("");
     el.innerHTML = `
+      ${BUBBLES.services.join("")}
       <div class="section__inner">
         <div class="section__head"><span class="kicker">${t.svcKicker}</span><h2>${t.svcTitle}</h2></div>
         <div class="services-grid">
@@ -287,6 +336,7 @@
     const pills = TOWNS.map(town => `<span class="town-pill">${town}</span>`).join("");
     el.innerHTML = `
       <div class="area-glow"></div>
+      ${BUBBLES.area.join("")}
       <div class="section__inner area-grid">
         <div>
           <span class="kicker kicker--on-dark">${t.areaKicker}</span>
@@ -307,6 +357,7 @@
         <p>${t[s.key + "d"]}</p>
       </div>`).join("");
     el.innerHTML = `
+      ${BUBBLES.how.join("")}
       <div class="section__inner">
         <div class="section__head"><span class="kicker">${t.howKicker}</span><h2>${t.howTitle}</h2></div>
         <div class="steps-grid">${steps}</div>
@@ -322,6 +373,7 @@
         <div><h3 style="font-size:18px; margin:4px 0 6px;">${t[d.key + "t"]}</h3><p>${t[d.key + "d"]}</p></div>
       </div>`).join("");
     el.innerHTML = `
+      ${BUBBLES.why.join("")}
       <div class="section__inner">
         <div class="section__head section__head--left"><span class="kicker">${t.whyKicker}</span><h2>${t.whyTitle}</h2></div>
         <div class="why-grid">${cards}</div>
@@ -338,6 +390,7 @@
         <figcaption>${t["rev" + n + "by"]}</figcaption>
       </figure>`).join("");
     el.innerHTML = `
+      ${BUBBLES.testimonials.join("")}
       <div class="section__inner">
         <div class="section__head"><span class="kicker">${t.revKicker}</span><h2>${t.revTitle}</h2></div>
         <div class="testi-grid">${cards}</div>
@@ -349,6 +402,7 @@
     const el = document.getElementById("final-cta");
     el.innerHTML = `
       <div class="final-cta__scrim"></div>
+      ${BUBBLES.finalCta.join("")}
       <div class="final-cta__inner">
         <h2>${t.finalTitle}</h2>
         <p>${t.finalSub}</p>

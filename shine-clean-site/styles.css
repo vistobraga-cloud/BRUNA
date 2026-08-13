@@ -159,6 +159,10 @@ p { line-height: 1.6; }
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 .btn--white:hover { color: var(--color-accent-text); }
+.btn--shimmer { background-size: 200% 200%; }
+@media (prefers-reduced-motion: no-preference) {
+  .btn--shimmer { animation: gshift 4s ease infinite; }
+}
 
 /* ===== Navbar ===== */
 .navbar {
@@ -251,16 +255,14 @@ p { line-height: 1.6; }
 .bubble {
   position: absolute;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.35);
   pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, var(--bub-border, 0.3));
 }
 @keyframes bub1 { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-20px) scale(1.06); } }
 @keyframes bub2 { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-14px) rotate(8deg); } }
 @keyframes bub3 { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-24px) scale(0.94); } }
 @media (prefers-reduced-motion: no-preference) {
-  .bubble--1 { animation: bub1 5s ease-in-out infinite; }
-  .bubble--2 { animation: bub2 6.5s ease-in-out infinite 0.8s; }
-  .bubble--3 { animation: bub3 7s ease-in-out infinite 1.5s; }
+  .bubble { animation: var(--bub-name, bub1) var(--bub-dur, 6s) ease-in-out infinite var(--bub-delay, 0s); }
 }
 @media (prefers-reduced-motion: reduce) {
   .bubble { display: none; }
