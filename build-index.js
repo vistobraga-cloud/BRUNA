@@ -70,6 +70,11 @@ body = body.replace(/padding: 12px clamp\(16px, 4vw, 48px\)/, "padding: 2px clam
 body = body.replace(/height: 44px; width: auto; display: block;/, "height: 60px; width: auto; display: block;");
 body = body.replace(/position: sticky; top: 0;/, "position: fixed; top: 0; left: 0; right: 0;");
 
+// (2b) Swap the alternating section background from beige/tan (reads as
+// "dirt" on a cleaning brand) to a light "clean water" blue pulled from
+// the logo's own office-cleaning icon gradient. Overridden after the _ds
+// stylesheet link, so it wins on cascade without touching that file.
+
 // (3) Before/After section — inject between Services (cream) and Area (dark).
 // The Services closing wave originally fills dark #1a1a2e; change that fill
 // to white so it transitions into the new white Transformations section,
@@ -166,6 +171,7 @@ ${jsonLd}
 </script>
 
 <style>
+:root { --color-bg: #DCEEF7; }
 ${helmetStyle}
 [data-lang-btn] {
   border: 0;
