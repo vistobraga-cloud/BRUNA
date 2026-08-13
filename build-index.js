@@ -62,6 +62,15 @@ body = body.replace(
 // Path fixes — the zip served images from uploads/ (we mirrored that dir).
 // image-slot.js and _ds live under the same folder; leave those paths as-is.
 
+// Swap gold for the logo's own "L" blue in the main candy gradient
+// (CTA buttons, final-CTA band, active lang pill) — client wants the
+// brand gradient itself cooled off, not just the decorative chrome.
+// Per-service icon gradients (e.g. House Cleaning's gold->red) are a
+// separate color code and are left untouched.
+body = body
+  .replace(/#FDBE02, #EC5D89, #8132DF/g, "#2F8EFC, #EC5D89, #8132DF")
+  .replace(/#FDBE02 0%, #EC5D89 40%, #8132DF 100%/g, "#2F8EFC 0%, #EC5D89 40%, #8132DF 100%");
+
 // User-requested tweaks on top of the original:
 // (1) Bigger logo that fills the nav bar with only ~1px of breathing room.
 // (2) Make the nav truly fixed (position: sticky was collapsing on scroll
@@ -149,7 +158,7 @@ Object.assign(COPY.pt, {
   "baPair-banheiro2": "Box"
 });
 
-const langBtnActive = "background: linear-gradient(135deg, #FDBE02, #EC5D89, #8132DF); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);";
+const langBtnActive = "background: linear-gradient(135deg, #2F8EFC, #EC5D89, #8132DF); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);";
 const langBtnIdle = "background: transparent; color: color-mix(in srgb, var(--color-text) 70%, transparent);";
 
 const html = `<!DOCTYPE html>
@@ -214,7 +223,7 @@ ${helmetStyle}
 /* Scroll progress bar — thin candy-gradient stripe pinned above the nav */
 #scroll-progress {
   position: fixed; top: 0; left: 0; height: 3px; width: 0%;
-  background: linear-gradient(90deg, #FDBE02, #EC5D89, #8132DF);
+  background: linear-gradient(90deg, #2F8EFC, #EC5D89, #8132DF);
   z-index: 100; pointer-events: none;
   transition: width 0.08s linear;
 }
