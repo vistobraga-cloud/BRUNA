@@ -41,7 +41,11 @@
 </script>
 
 <style>
-:root { --color-bg: #DCEEF7; }
+:root {
+  --color-bg: #DCEEF7;
+  --color-surface: #E3F1FA;
+  --color-divider: rgba(47, 142, 252, 0.22);
+}
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body { margin: 0; }
@@ -68,6 +72,22 @@ body { margin: 0; }
   .sc .g4 { grid-template-columns: 1fr 1fr !important; }
 }
 
+
+/* The badge and floating bubbles were tuned as warm gold/pink washes
+   for the old tan background — translucent warm-on-cool blue reads as
+   a muddy, dirty tint. Re-tint them cool/glassy so they read as soap
+   bubbles and a clean chip instead, without touching the brand CTA
+   gradient itself (kept 100% faithful to the logo). */
+#hero span[style*="rgba(253,190,2,0.18)"] {
+  background: rgba(255, 255, 255, 0.75) !important;
+  box-shadow: 0 1px 4px rgba(47, 142, 252, 0.15);
+}
+#hero div[style*="animation: bub"],
+#services div[style*="animation: bub"],
+#why div[style*="animation: bub"] {
+  background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.9), rgba(255,255,255,0.35) 45%, rgba(151,224,255,0.2) 75%, transparent) !important;
+  border-color: rgba(255,255,255,0.55) !important;
+}
 [data-lang-btn] {
   border: 0;
   cursor: pointer;
@@ -195,7 +215,7 @@ body { padding-top: 68px; }
 
   <!-- ═══ SECTION 1: HERO — warm cream bg ═══ -->
   <span id="top"></span>
-  <section style="position: relative; background: var(--color-bg); overflow: hidden;">
+  <section id="hero" style="position: relative; background: var(--color-bg); overflow: hidden;">
     <!-- Decorative gradient circles -->
     <div style="position: absolute; right: -120px; top: -60px; width: 400px; height: 400px; border-radius: 50%; background: linear-gradient(135deg, rgba(253,190,2,0.12), rgba(236,93,137,0.08)); pointer-events: none;"></div>
     <div style="position: absolute; left: -80px; bottom: -40px; width: 220px; height: 220px; border-radius: 50%; background: linear-gradient(135deg, rgba(129,50,223,0.06), rgba(97,236,250,0.06)); pointer-events: none;"></div>

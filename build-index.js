@@ -69,6 +69,12 @@ body = body.replace(
 body = body.replace(/padding: 12px clamp\(16px, 4vw, 48px\)/, "padding: 2px clamp(16px, 4vw, 48px)");
 body = body.replace(/height: 44px; width: auto; display: block;/, "height: 60px; width: auto; display: block;");
 body = body.replace(/position: sticky; top: 0;/, "position: fixed; top: 0; left: 0; right: 0;");
+// The Designer's hero <section> is the only one with no id (unlike
+// about/services/area/how/why/reviews) — add one so it can be targeted.
+body = body.replace(
+  '<section style="position: relative; background: var(--color-bg); overflow: hidden;">',
+  '<section id="hero" style="position: relative; background: var(--color-bg); overflow: hidden;">'
+);
 
 // (2b) Swap the alternating section background from beige/tan (reads as
 // "dirt" on a cleaning brand) to a light "clean water" blue pulled from
@@ -171,8 +177,28 @@ ${jsonLd}
 </script>
 
 <style>
-:root { --color-bg: #DCEEF7; }
+:root {
+  --color-bg: #DCEEF7;
+  --color-surface: #E3F1FA;
+  --color-divider: rgba(47, 142, 252, 0.22);
+}
 ${helmetStyle}
+
+/* The badge and floating bubbles were tuned as warm gold/pink washes
+   for the old tan background — translucent warm-on-cool blue reads as
+   a muddy, dirty tint. Re-tint them cool/glassy so they read as soap
+   bubbles and a clean chip instead, without touching the brand CTA
+   gradient itself (kept 100% faithful to the logo). */
+#hero span[style*="rgba(253,190,2,0.18)"] {
+  background: rgba(255, 255, 255, 0.75) !important;
+  box-shadow: 0 1px 4px rgba(47, 142, 252, 0.15);
+}
+#hero div[style*="animation: bub"],
+#services div[style*="animation: bub"],
+#why div[style*="animation: bub"] {
+  background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.9), rgba(255,255,255,0.35) 45%, rgba(151,224,255,0.2) 75%, transparent) !important;
+  border-color: rgba(255,255,255,0.55) !important;
+}
 [data-lang-btn] {
   border: 0;
   cursor: pointer;
