@@ -213,7 +213,7 @@ p { line-height: 1.6; }
 .icon-wa { width: 18px; height: 18px; }
 
 /* ===== Hero ===== */
-.hero { overflow: hidden; }
+.hero { overflow: hidden; background: var(--color-bg); }
 .hero__inner { padding-bottom: clamp(64px, 8vw, 100px); }
 .hero__content { max-width: 720px; }
 .badge {
