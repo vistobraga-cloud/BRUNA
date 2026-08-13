@@ -15,14 +15,10 @@
   --color-gold: #fdbe02;
   --color-gold-solid: #fdbd36;
 
-  /* Full 3-stop candy gradient: brand identity, decorative surfaces only.
-     Never place small/normal text directly on it — the gold stop measures
-     ~1.7:1 contrast against white, well under WCAG AA. */
+  /* Candy gradient — exact match to the Designer source, used on every
+     surface including CTA buttons (same as the original). */
   --gradient-brand: linear-gradient(135deg, #fdbe02, #ec5d89, #8132df);
-
-  /* 2-stop pink->purple gradient: verified >=4.5:1 with white text across
-     its whole range. Used for every clickable CTA button. */
-  --gradient-cta: linear-gradient(135deg, #c9376b, #6b22b5);
+  --gradient-cta: linear-gradient(135deg, #fdbe02, #ec5d89, #8132df);
 
   --font-heading: "Caprasimo", cursive;
   --font-body: "Figtree", sans-serif;
@@ -32,7 +28,7 @@
 
   --shadow-card: 0 2px 8px rgba(32, 20, 15, 0.06);
   --shadow-card-hover: 0 12px 32px rgba(32, 20, 15, 0.12);
-  --shadow-cta: 0 8px 22px rgba(50, 20, 40, 0.25);
+  --shadow-cta: 0 8px 28px rgba(129, 50, 223, 0.32);
   --shadow-photo: 0 16px 40px rgba(32, 20, 15, 0.14);
 
   --section-pad: clamp(48px, 7vw, 80px);
@@ -160,10 +156,10 @@ p { line-height: 1.6; }
 .btn--lg { padding: 16px 32px; font-size: 18px; min-height: 44px; }
 .btn--white {
   background: #fff;
-  color: var(--color-accent-text);
+  color: #8132df;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
-.btn--white:hover { color: var(--color-accent-text); }
+.btn--white:hover { color: #8132df; }
 .btn--shimmer { background-size: 200% 200%; }
 @media (prefers-reduced-motion: no-preference) {
   .btn--shimmer { animation: gshift 4s ease infinite; }
