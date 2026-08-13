@@ -69,7 +69,35 @@ body = body.replace(
 // separate color code and are left untouched.
 body = body
   .replace(/#FDBE02, #EC5D89, #8132DF/g, "#2F8EFC, #EC5D89, #8132DF")
-  .replace(/#FDBE02 0%, #EC5D89 40%, #8132DF 100%/g, "#2F8EFC 0%, #EC5D89 40%, #8132DF 100%");
+  .replace(/#FDBE02 0%, #EC5D89 40%, #8132DF 100%/g, "#2F8EFC 0%, #EC5D89 40%, #8132DF 100%")
+  // Hero's big decorative circle (400px, top-right): gold+pink wash reads
+  // muddy over the new blue background, same issue as the badge/bubbles.
+  .replace(
+    "background: linear-gradient(135deg, rgba(253,190,2,0.12), rgba(236,93,137,0.08));",
+    "background: linear-gradient(135deg, rgba(47,142,252,0.12), rgba(236,93,137,0.08));"
+  )
+  // Service Area's ambient glow: was gold-left/purple-right; now blue
+  // ("L")-left/purple ("C")-right, echoing the same blue->purple move
+  // used everywhere else, kept dark navy underneath per feedback.
+  .replace(
+    "background: radial-gradient(ellipse at 20% 50%, rgba(253,190,2,0.08) 0%, transparent 60%), radial-gradient(ellipse at 80% 50%, rgba(129,50,223,0.08) 0%, transparent 60%);",
+    "background: radial-gradient(ellipse at 20% 50%, rgba(47,142,252,0.1) 0%, transparent 60%), radial-gradient(ellipse at 80% 50%, rgba(129,50,223,0.1) 0%, transparent 60%);"
+  )
+  // Area "+ surrounding towns" pill and kicker label: gold -> blue.
+  .replace(
+    'background: linear-gradient(135deg, rgba(253,190,2,0.25), rgba(236,93,137,0.2)); border: 1px solid rgba(253,190,2,0.3); font-size: 15px; font-weight: 600; color: #FDBE02;',
+    'background: linear-gradient(135deg, rgba(47,142,252,0.25), rgba(236,93,137,0.2)); border: 1px solid rgba(47,142,252,0.3); font-size: 15px; font-weight: 600; color: #2F8EFC;'
+  )
+  .replace(
+    'font-weight: 600; color: #FDBE02; margin-bottom: 10px;"><span data-i18n="areaKicker">',
+    'font-weight: 600; color: #2F8EFC; margin-bottom: 10px;"><span data-i18n="areaKicker">'
+  )
+  // Footer WhatsApp link icon/text: gold -> blue, so no gold remains
+  // outside the per-service icon color code.
+  .replace(
+    'style="display: inline-flex; align-items: center; gap: 8px; color: #FDBE02; text-decoration: none;"',
+    'style="display: inline-flex; align-items: center; gap: 8px; color: #2F8EFC; text-decoration: none;"'
+  );
 
 // User-requested tweaks on top of the original:
 // (1) Bigger logo that fills the nav bar with only ~1px of breathing room.
