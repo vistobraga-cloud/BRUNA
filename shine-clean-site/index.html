@@ -78,15 +78,25 @@ body { margin: 0; }
   background: transparent; color: color-mix(in srgb, var(--color-text) 70%, transparent);
 }
 [data-lang-btn][aria-pressed="true"] { background: linear-gradient(135deg, #FDBE02, #EC5D89, #8132DF); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,0.4); }
+
+/* (2) Scroll progress bar — thin candy-gradient stripe on top of the nav */
+#scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, #FDBE02, #EC5D89, #8132DF);
+  z-index: 100; pointer-events: none;
+  transition: width 0.08s linear;
+}
+@media (prefers-reduced-motion: reduce) { #scroll-progress { transition: none; } }
 </style>
 </head>
 <body>
+<div id="scroll-progress" aria-hidden="true"></div>
 <div class="sc" style="color: var(--color-text); font-family: var(--font-body); min-height: 100vh; overflow-x: hidden;">
 
   <!-- NAV -->
-  <nav style="position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px clamp(16px, 4vw, 48px); background: rgba(255,255,255,0.82); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(0,0,0,0.06);">
+  <nav style="position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 2px clamp(16px, 4vw, 48px); background: rgba(255,255,255,0.82); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(0,0,0,0.06);">
     <a href="#top" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-      <img src="uploads/LOGOBRUN-SHINECLEANNER.png" alt="Shine Clean Specialist" style="height: 44px; width: auto; display: block;" />
+      <img src="uploads/LOGOBRUN-SHINECLEANNER.png" alt="Shine Clean Specialist" style="height: 60px; width: auto; display: block;" />
     </a>
     <div style="display: flex; align-items: center; gap: 14px;">
       <div role="group" aria-label="Language" style="display: inline-flex; padding: 3px; gap: 2px; border-radius: 999px; background: var(--color-surface); border: 1px solid var(--color-divider);">
@@ -428,6 +438,16 @@ body { margin: 0; }
     const wa = e.target.closest("[data-wa-href]");
     if (wa) track();
   });
+
+  const bar = document.getElementById("scroll-progress");
+  function updateBar() {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+  }
+  window.addEventListener("scroll", updateBar, { passive: true });
+  window.addEventListener("resize", updateBar);
+  updateBar();
 
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } });

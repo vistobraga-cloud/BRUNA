@@ -61,6 +61,11 @@ body = body.replace(
 // Path fixes — the zip served images from uploads/ (we mirrored that dir).
 // image-slot.js and _ds live under the same folder; leave those paths as-is.
 
+// User-requested tweaks on top of the original:
+// (1) Bigger logo that fills the nav bar with only ~1px of breathing room.
+body = body.replace(/padding: 12px clamp\(16px, 4vw, 48px\)/, "padding: 2px clamp(16px, 4vw, 48px)");
+body = body.replace(/height: 44px; width: auto; display: block;/, "height: 60px; width: auto; display: block;");
+
 const langBtnActive = "background: linear-gradient(135deg, #FDBE02, #EC5D89, #8132DF); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);";
 const langBtnIdle = "background: transparent; color: color-mix(in srgb, var(--color-text) 70%, transparent);";
 
@@ -101,9 +106,19 @@ ${helmetStyle}
   ${langBtnIdle}
 }
 [data-lang-btn][aria-pressed="true"] { ${langBtnActive} }
+
+/* (2) Scroll progress bar — thin candy-gradient stripe on top of the nav */
+#scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, #FDBE02, #EC5D89, #8132DF);
+  z-index: 100; pointer-events: none;
+  transition: width 0.08s linear;
+}
+@media (prefers-reduced-motion: reduce) { #scroll-progress { transition: none; } }
 </style>
 </head>
 <body>
+<div id="scroll-progress" aria-hidden="true"></div>
 ${body}
 
 <script>
@@ -155,6 +170,16 @@ ${body}
     const wa = e.target.closest("[data-wa-href]");
     if (wa) track();
   });
+
+  const bar = document.getElementById("scroll-progress");
+  function updateBar() {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+  }
+  window.addEventListener("scroll", updateBar, { passive: true });
+  window.addEventListener("resize", updateBar);
+  updateBar();
 
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } });
