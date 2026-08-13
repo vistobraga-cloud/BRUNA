@@ -51,11 +51,12 @@ body = body.replace(/(<button[^>]*data-lang-btn="pt"[^>]*)>/g, '$1 type="button"
 // Attach a class on the lang-toggle buttons so we can style active state
 // (originally that came from enBtnStyle / ptBtnStyle inline strings)
 
-// Replace <image-slot> custom element (would need the Designer's authoring
-// widget) with a plain visual placeholder that keeps the same footprint.
+// Replace the About-section image-slot with Bruna's real photo. Portrait
+// framing biases toward the top so her face stays in view when the parent
+// circle crops the sides.
 body = body.replace(
   /<image-slot[^>]*placeholder="([^"]*)"[^>]*><\/image-slot>/,
-  (_, placeholder) => `<div style="width:100%;height:100%;display:grid;place-items:center;text-align:center;padding:16px;background:linear-gradient(135deg, rgba(253,190,2,0.15), rgba(129,50,223,0.12));border:2px dashed rgba(198,113,57,0.4);border-radius:999px;color:#8a4a1f;font-size:13px;font-weight:600;">${placeholder}</div>`
+  `<img src="uploads/Bruna.png" alt="Bruna — owner of Shine Clean Specialist" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 28%;display:block;">`
 );
 
 // Path fixes — the zip served images from uploads/ (we mirrored that dir).
@@ -68,6 +69,74 @@ body = body.replace(
 body = body.replace(/padding: 12px clamp\(16px, 4vw, 48px\)/, "padding: 2px clamp(16px, 4vw, 48px)");
 body = body.replace(/height: 44px; width: auto; display: block;/, "height: 60px; width: auto; display: block;");
 body = body.replace(/position: sticky; top: 0;/, "position: fixed; top: 0; left: 0; right: 0;");
+
+// (3) Before/After section — inject between Services (cream) and Area (dark).
+// The Services closing wave originally fills dark #1a1a2e; change that fill
+// to white so it transitions into the new white Transformations section,
+// which then has its own dark-fill wave heading into Area.
+const BEFORE_AFTER_HTML = `
+<section id="transformations" style="background:#ffffff; position:relative;">
+  <div style="max-width: 1120px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 48px);">
+    <div class="fade-in" style="text-align: center; max-width: 44ch; margin: 0 auto 44px;">
+      <span style="display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin-bottom:10px;"><span data-i18n="baKicker"></span></span>
+      <h2 style="font-family:var(--font-heading);font-size:clamp(28px,3.5vw,42px);line-height:1.1;margin:0 0 14px;letter-spacing:-.015em;"><span data-i18n="baTitle"></span></h2>
+      <p style="font-size:16px;margin:0;color:color-mix(in srgb, var(--color-text) 65%, transparent);"><span data-i18n="baSub"></span></p>
+    </div>
+    <div class="ba-grid fade-in">
+      ${['cozinha','quarto','banheiro1','banheiro2'].map((k,i) => {
+        const ext = k === 'quarto' ? 'jpeg' : 'png';
+        // kitchen + bathtub landscape; bedroom + shower portrait
+        const ratio = (k === 'quarto' || k === 'banheiro2') ? '3/4' : '4/3';
+        return `
+      <figure class="ba-item">
+        <div class="ba" style="aspect-ratio:${ratio};">
+          <div class="ba-layer"><img src="uploads/antes-${k}.${ext}" alt="" loading="lazy" decoding="async"></div>
+          <div class="ba-layer ba-after"><img src="uploads/depois-${k}.${ext}" alt="" loading="lazy" decoding="async"></div>
+          <span class="ba-badge ba-badge-before" data-i18n="baLabelBefore"></span>
+          <span class="ba-badge ba-badge-after" data-i18n="baLabelAfter"></span>
+          <div class="ba-handle"><div class="ba-knob" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l-5 6 5 6v-4h6v4l5-6-5-6v4H9z"/></svg></div></div>
+        </div>
+        <figcaption class="ba-caption" data-i18n="baPair${i+1}"></figcaption>
+      </figure>`;
+      }).join('')}
+    </div>
+  </div>
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:60px;">
+    <path d="M0,50 C180,10 360,70 540,30 C720,-10 900,60 1080,30 C1260,0 1380,40 1440,20 L1440,80 L0,80Z" fill="#1a1a2e"/>
+  </svg>
+</section>
+`;
+
+// change services closing wave dark->white AND insert new section right after </section id="services">
+body = body.replace(
+  /(<path d="M0,50 C180,10 360,70 540,30 C720,-10 900,60 1080,30 C1260,0 1380,40 1440,20 L1440,80 L0,80Z" fill=")#1a1a2e("\/>\s*<\/svg>\s*<\/section>)/,
+  '$1#ffffff$2' + BEFORE_AFTER_HTML
+);
+
+// Extend the runtime COPY with the new keys (kept out of the Designer's own
+// source file so a re-export of the zip doesn't clobber the additions).
+Object.assign(COPY.en, {
+  baKicker: "Real transformations",
+  baTitle: "See the difference for yourself",
+  baSub: "Drag the slider on each photo to reveal the after.",
+  baLabelBefore: "Before",
+  baLabelAfter: "After",
+  baPair1: "Kitchen",
+  baPair2: "Bedroom",
+  baPair3: "Bathtub",
+  baPair4: "Shower"
+});
+Object.assign(COPY.pt, {
+  baKicker: "Transformações reais",
+  baTitle: "Veja a diferença você mesmo",
+  baSub: "Arraste o controle em cada foto para revelar o depois.",
+  baLabelBefore: "Antes",
+  baLabelAfter: "Depois",
+  baPair1: "Cozinha",
+  baPair2: "Quarto",
+  baPair3: "Banheira",
+  baPair4: "Box"
+});
 
 const langBtnActive = "background: linear-gradient(135deg, #FDBE02, #EC5D89, #8132DF); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);";
 const langBtnIdle = "background: transparent; color: color-mix(in srgb, var(--color-text) 70%, transparent);";
@@ -150,6 +219,56 @@ body { padding-top: 68px; }
   #wa-float { width: 56px; height: 56px; bottom: 16px; right: 16px; }
   #wa-float svg { width: 28px; height: 28px; }
 }
+
+/* Before/After slider */
+#transformations .ba-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+@media (max-width: 720px) { #transformations .ba-grid { grid-template-columns: 1fr; gap: 24px; } }
+.ba-item { display: flex; flex-direction: column; gap: 12px; margin: 0; }
+.ba {
+  position: relative; overflow: hidden;
+  border-radius: 22px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  cursor: ew-resize; user-select: none;
+  touch-action: pan-y;
+  background: #eee;
+  --pos: 50%;
+  transition: box-shadow 0.25s ease;
+}
+.ba:hover { box-shadow: 0 12px 32px rgba(0,0,0,0.14); }
+.ba img { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.ba-layer { position: absolute; inset: 0; }
+.ba-after { clip-path: inset(0 0 0 var(--pos)); }
+.ba-handle {
+  position: absolute; top: 0; bottom: 0;
+  left: var(--pos); width: 3px;
+  background: #fff;
+  box-shadow: 0 0 12px rgba(0,0,0,0.5);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.ba-knob {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 46px; height: 46px; border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  display: grid; place-items: center;
+  color: #8132DF;
+}
+.ba-knob svg { width: 24px; height: 24px; fill: currentColor; }
+.ba-badge {
+  position: absolute; top: 12px;
+  padding: 5px 14px; border-radius: 999px;
+  font-family: var(--font-body); font-weight: 700;
+  font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: #fff; pointer-events: none;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.5);
+}
+.ba-badge-before { left: 12px; }
+.ba-badge-after { right: 12px; background: linear-gradient(135deg, rgba(253,190,2,0.9), rgba(236,93,137,0.9)); }
+.ba-caption { font-family: var(--font-heading); font-size: 18px; text-align: center; color: var(--color-text); }
 </style>
 </head>
 <body>
@@ -207,6 +326,29 @@ ${body}
     if (btn) { setLang(btn.getAttribute("data-lang-btn")); return; }
     const wa = e.target.closest("[data-wa-href]");
     if (wa) track();
+  });
+
+  // Before/After sliders — pointer events cover mouse, touch and pen.
+  document.querySelectorAll(".ba").forEach(el => {
+    const setPos = clientX => {
+      const r = el.getBoundingClientRect();
+      let p = ((clientX - r.left) / r.width) * 100;
+      if (p < 0) p = 0; else if (p > 100) p = 100;
+      el.style.setProperty("--pos", p + "%");
+    };
+    el.addEventListener("pointerdown", e => {
+      el.setPointerCapture(e.pointerId);
+      setPos(e.clientX);
+      const move = ev => setPos(ev.clientX);
+      const up = () => {
+        el.removeEventListener("pointermove", move);
+        el.removeEventListener("pointerup", up);
+        el.removeEventListener("pointercancel", up);
+      };
+      el.addEventListener("pointermove", move);
+      el.addEventListener("pointerup", up);
+      el.addEventListener("pointercancel", up);
+    });
   });
 
   const bar = document.getElementById("scroll-progress");
