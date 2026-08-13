@@ -63,8 +63,11 @@ body = body.replace(
 
 // User-requested tweaks on top of the original:
 // (1) Bigger logo that fills the nav bar with only ~1px of breathing room.
+// (2) Make the nav truly fixed (position: sticky was collapsing on scroll
+//     inside the .sc wrapper's overflow-x context).
 body = body.replace(/padding: 12px clamp\(16px, 4vw, 48px\)/, "padding: 2px clamp(16px, 4vw, 48px)");
 body = body.replace(/height: 44px; width: auto; display: block;/, "height: 60px; width: auto; display: block;");
+body = body.replace(/position: sticky; top: 0;/, "position: fixed; top: 0; left: 0; right: 0;");
 
 const langBtnActive = "background: linear-gradient(135deg, #FDBE02, #EC5D89, #8132DF); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);";
 const langBtnIdle = "background: transparent; color: color-mix(in srgb, var(--color-text) 70%, transparent);";
@@ -107,7 +110,7 @@ ${helmetStyle}
 }
 [data-lang-btn][aria-pressed="true"] { ${langBtnActive} }
 
-/* (2) Scroll progress bar — thin candy-gradient stripe on top of the nav */
+/* Scroll progress bar — thin candy-gradient stripe pinned above the nav */
 #scroll-progress {
   position: fixed; top: 0; left: 0; height: 3px; width: 0%;
   background: linear-gradient(90deg, #FDBE02, #EC5D89, #8132DF);
@@ -115,11 +118,46 @@ ${helmetStyle}
   transition: width 0.08s linear;
 }
 @media (prefers-reduced-motion: reduce) { #scroll-progress { transition: none; } }
+
+/* Nav is now position:fixed — reserve space so hero content isn't hidden. */
+body { padding-top: 68px; }
+
+/* Floating WhatsApp button — always visible, tap-friendly, doesn't obscure content */
+#wa-float {
+  position: fixed; bottom: 20px; right: 20px; z-index: 90;
+  display: grid; place-items: center;
+  width: 60px; height: 60px; border-radius: 999px;
+  background: #25D366; color: #fff; text-decoration: none;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45), 0 2px 6px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#wa-float:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55), 0 4px 10px rgba(0,0,0,0.2);
+}
+#wa-float:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+#wa-float svg { width: 32px; height: 32px; fill: #fff; }
+@media (prefers-reduced-motion: no-preference) {
+  #wa-float {
+    animation: wa-pulse 2.6s ease-in-out infinite;
+  }
+  @keyframes wa-pulse {
+    0%, 100% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45), 0 2px 6px rgba(0,0,0,0.15), 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45), 0 2px 6px rgba(0,0,0,0.15), 0 0 0 14px rgba(37, 211, 102, 0); }
+  }
+}
+@media (max-width: 480px) {
+  #wa-float { width: 56px; height: 56px; bottom: 16px; right: 16px; }
+  #wa-float svg { width: 28px; height: 28px; }
+}
 </style>
 </head>
 <body>
 <div id="scroll-progress" aria-hidden="true"></div>
 ${body}
+<a id="wa-float" href="#" data-wa-href="1" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.9 14.2c-.25.7-1.45 1.34-2 1.42-.53.08-1.2.11-1.94-.12a15 15 0 0 1-1.76-.65 11.5 11.5 0 0 1-4.4-3.9c-.33-.44-.85-1.28-.85-2.44 0-1.16.6-1.73.82-1.97a.86.86 0 0 1 .62-.29h.44c.14 0 .33-.05.52.4.2.48.66 1.66.72 1.78.06.12.1.26.02.42-.08.16-.12.26-.24.4l-.36.42c-.12.12-.24.25-.1.49.13.24.6.98 1.28 1.59.88.78 1.62 1.02 1.86 1.14.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.58-.19 1.28z"/></svg>
+</a>
 
 <script>
 (() => {
