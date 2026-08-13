@@ -6,6 +6,12 @@
       "runtimeExecutable": "node",
       "runtimeArgs": ["shine-clean-site/_dev-server.js"],
       "port": 5173
+    },
+    {
+      "name": "design-handoff",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["design_handoff_extracted/_serve.js"],
+      "port": 5174
     }
   ]
 }

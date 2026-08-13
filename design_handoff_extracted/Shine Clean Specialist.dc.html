@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/organic-413876d9-bc78-4ee4-a8d6-60491a8e091c/styles.css">
+<script src="_ds/organic-413876d9-bc78-4ee4-a8d6-60491a8e091c/_ds_bundle.js"></script>
+<script src="image-slot.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HousekeepingService",
+  "name": "Shine Clean Specialist",
+  "image": "uploads/LOGOBRUN-SHINECLEANNER.png",
+  "telephone": "+1-774-476-0595",
+  "areaServed": "Within 40 miles of Fall River, MA",
+  "address": { "@type": "PostalAddress", "addressLocality": "Fall River", "addressRegion": "MA", "addressCountry": "US" },
+  "url": "https://shinecleanspecialist.com",
+  "priceRange": "$$",
+  "makesOffer": [
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"House Cleaning"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Deep Cleaning"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Move In / Move Out Cleaning"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Office Cleaning"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Post Construction Cleaning"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Commercial Cleaning"}}
+  ]
+}
+</script>
+<style>
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; }
+.scs a { color: var(--color-accent-700); text-underline-offset: 3px; }
+.scs a:hover { color: var(--color-accent-800); }
+@keyframes scs-pop { 0% { transform: scale(1); } 50% { transform: scale(1.04); } 100% { transform: scale(1); } }
+@keyframes bubble-float-1 { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-18px) scale(1.05); } }
+@keyframes bubble-float-2 { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(8deg); } }
+@keyframes bubble-float-3 { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-22px) scale(0.95); } }
+@keyframes gradient-shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@media (max-width: 860px) {
+  .scs .r2, .scs .r3, .scs .r4, .scs .about-grid, .scs .area-grid { grid-template-columns: 1fr !important; }
+  .scs .about-grid .about-photo { justify-self: start !important; }
+}
+@media (max-width: 860px) and (min-width: 561px) {
+  .scs .r4 { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 560px) {
+  .scs .nav-links-town { display: none; }
+}
+</style>
+</helmet>
+<div class="scs" style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); min-height: 100vh;">
+
+  <nav style="position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px clamp(16px, 4vw, 48px); background: color-mix(in srgb, var(--color-bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--color-divider);">
+    <a href="#top" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+      <img src="uploads/LOGOBRUN-SHINECLEANNER.png" alt="Shine Clean Specialist" style="height: 44px; width: auto; display: block;" />
+    </a>
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div role="group" aria-label="Language" style="display: inline-flex; padding: 3px; gap: 2px; border-radius: 999px; background: var(--color-surface); border: 1px solid var(--color-divider);">
+        <button type="button" onClick="{{ setEn }}" aria-pressed="{{ isEn }}" style="{{ enBtnStyle }}">EN</button>
+        <button type="button" onClick="{{ setPt }}" aria-pressed="{{ isPt }}" style="{{ ptBtnStyle }}">PT</button>
+      </div>
+      <a href="{{ waHref }}" target="_blank" rel="noopener" onClick="{{ track }}" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 999px; color: #fff; font-family: var(--font-heading); font-size: 14px; text-decoration: none; background: linear-gradient(135deg, #FDBE02 0%, #EC5D89 52%, #8132DF 100%); box-shadow: 0 4px 14px rgba(129,50,223,0.28), inset 0 1px 0 rgba(255,255,255,0.4);">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.9 14.2c-.25.7-1.45 1.34-2 1.42-.53.08-1.2.11-1.94-.12a15 15 0 0 1-1.76-.65 11.5 11.5 0 0 1-4.4-3.9c-.33-.44-.85-1.28-.85-2.44 0-1.16.6-1.73.82-1.97a.86.86 0 0 1 .62-.29h.44c.14 0 .33-.05.52.4.2.48.66 1.66.72 1.78.06.12.1.26.02.42-.08.16-.12.26-.24.4l-.36.42c-.12.12-.24.25-.1.49.13.24.6.98 1.28 1.59.88.78 1.62 1.02 1.86 1.14.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.58-.19 1.28z"/></svg>
+        <span>{{ t.navCta }}</span>
+      </a>
+    </div>
+  </nav>
+
+  <span id="top"></span>
+  <div style="max-width: 1120px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px);">
+
+    <!-- HERO -->
+    <section style="position: relative; padding: clamp(48px, 8vw, 96px) 0 clamp(40px, 6vw, 72px); overflow: hidden;">
+      <div style="position: absolute; right: -140px; top: -80px; width: 380px; height: 380px; border-radius: 50%; background: linear-gradient(135deg, rgba(253,190,2,0.14), rgba(236,93,137,0.1)); z-index: 0; pointer-events: none;"></div>
+      <div style="position: absolute; left: -60px; bottom: 20px; width: 160px; height: 160px; border-radius: 50%; background: linear-gradient(135deg, rgba(129,50,223,0.08), rgba(97,236,250,0.08)); z-index: 0; pointer-events: none;"></div>
+      <!-- Soap bubbles -->
+      <div style="position: absolute; right: 12%; top: 18%; width: 28px; height: 28px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.7), rgba(253,190,2,0.15) 40%, rgba(236,93,137,0.12) 70%, rgba(129,50,223,0.08)); border: 1px solid rgba(255,255,255,0.35); box-shadow: inset 0 -4px 6px rgba(129,50,223,0.06); animation: bubble-float-1 5s ease-in-out infinite; pointer-events: none; z-index: 0;"></div>
+      <div style="position: absolute; right: 22%; top: 42%; width: 18px; height: 18px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.65), rgba(110,232,91,0.12) 40%, rgba(97,236,250,0.1) 70%, transparent); border: 1px solid rgba(255,255,255,0.3); animation: bubble-float-2 6.5s ease-in-out infinite 0.8s; pointer-events: none; z-index: 0;"></div>
+      <div style="position: absolute; right: 6%; top: 55%; width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.6), rgba(236,93,137,0.12) 50%, transparent); border: 1px solid rgba(255,255,255,0.25); animation: bubble-float-3 7s ease-in-out infinite 1.5s; pointer-events: none; z-index: 0;"></div>
+      <div style="position: absolute; right: 30%; top: 12%; width: 10px; height: 10px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.7), rgba(253,190,2,0.15) 50%, transparent); border: 1px solid rgba(255,255,255,0.2); animation: bubble-float-1 8s ease-in-out infinite 2.2s; pointer-events: none; z-index: 0;"></div>
+      <div style="position: absolute; left: 15%; top: 30%; width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.65), rgba(129,50,223,0.1) 40%, rgba(97,236,250,0.08) 70%, transparent); border: 1px solid rgba(255,255,255,0.3); animation: bubble-float-2 7.5s ease-in-out infinite 0.5s; pointer-events: none; z-index: 0;"></div>
+      <div style="position: absolute; right: 40%; bottom: 15%; width: 20px; height: 20px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.65), rgba(253,190,2,0.1) 40%, rgba(236,93,137,0.08) 70%, transparent); border: 1px solid rgba(255,255,255,0.25); animation: bubble-float-3 6s ease-in-out infinite 3s; pointer-events: none; z-index: 0;"></div>
+      <div style="position: relative; z-index: 1; max-width: 720px;">
+        <span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: linear-gradient(135deg, rgba(253,190,2,0.18), rgba(236,93,137,0.15)); color: var(--color-accent-800); font-size: 13px; font-weight: 600; letter-spacing: 0.02em;">{{ t.heroBadge }}</span>
+        <h1 style="font-family: var(--font-heading); font-size: clamp(38px, 6vw, 68px); line-height: 1.06; margin: 20px 0 0; letter-spacing: -0.02em; max-width: 16ch;">{{ t.heroHeadline }}</h1>
+        <p style="font-size: clamp(17px, 2vw, 20px); line-height: 1.6; margin: 22px 0 0; max-width: 46ch; color: color-mix(in srgb, var(--color-text) 82%, transparent);">{{ t.heroSub }}</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; align-items: center;">
+          <a href="{{ waHref }}" target="_blank" rel="noopener" onClick="{{ track }}" style="display: inline-flex; align-items: center; gap: 10px; padding: 16px 30px; border-radius: 999px; color: #fff; font-family: var(--font-heading); font-size: 18px; text-decoration: none; background: linear-gradient(135deg, #FDBE02 0%, #EC5D89 52%, #8132DF 100%); background-size: 200% 200%; animation: gradient-shift 4s ease infinite; box-shadow: 0 8px 24px rgba(129,50,223,0.3), inset 0 1px 0 rgba(255,255,255,0.45);">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.9 14.2c-.25.7-1.45 1.34-2 1.42-.53.08-1.2.11-1.94-.12a15 15 0 0 1-1.76-.65 11.5 11.5 0 0 1-4.4-3.9c-.33-.44-.85-1.28-.85-2.44 0-1.16.6-1.73.82-1.97a.86.86 0 0 1 .62-.29h.44c.14 0 .33-.05.52.4.2.48.66 1.66.72 1.78.06.12.1.26.02.42-.08.16-.12.26-.24.4l-.36.42c-.12.12-.24.25-.1.49.13.24.6.98 1.28 1.59.88.78 1.62 1.02 1.86 1.14.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.58-.19 1.28z"/></svg>
+            <span>{{ t.heroCta }}</span>
+          </a>
+          <span style="font-size: 15px; color: color-mix(in srgb, var(--color-text) 62%, transparent);">{{ t.heroNote }}</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about-grid" style="display: grid; grid-template-columns: 300px minmax(0,1fr); gap: clamp(28px, 5vw, 64px); align-items: center; padding: clamp(36px, 6vw, 72px) 0; position: relative;">
+      <div style="position: absolute; right: 5%; top: 20%; width: 20px; height: 20px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.65), rgba(253,190,2,0.12) 40%, rgba(236,93,137,0.08) 70%, transparent); border: 1px solid rgba(255,255,255,0.3); animation: bubble-float-2 7s ease-in-out infinite 0.5s; pointer-events: none;"></div>
+      <div style="position: absolute; right: 12%; bottom: 10%; width: 13px; height: 13px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.6), rgba(129,50,223,0.1) 50%, transparent); border: 1px solid rgba(255,255,255,0.2); animation: bubble-float-1 6s ease-in-out infinite 1.8s; pointer-events: none;"></div>
+      <figure class="about-photo" style="margin: 0; width: min(300px, 100%); aspect-ratio: 1; border-radius: 999px; overflow: hidden; box-shadow: var(--shadow-lg); justify-self: center;">
+        <image-slot id="bruna-photo" shape="circle" placeholder="Foto da Bruna / Bruna's photo" style="width: 100%; height: 100%;"></image-slot>
+      </figure>
+      <div>
+        <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin-bottom: 10px;">{{ t.aboutKicker }}</span>
+        <h2 style="font-family: var(--font-heading); font-size: clamp(28px, 3.5vw, 40px); line-height: 1.1; margin: 0 0 18px; letter-spacing: -0.015em;">{{ t.aboutTitle }}</h2>
+        <p style="font-size: 17px; line-height: 1.65; margin: 0 0 16px; color: color-mix(in srgb, var(--color-text) 82%, transparent);">{{ t.aboutP1 }}</p>
+        <p style="font-size: 17px; line-height: 1.65; margin: 0; color: color-mix(in srgb, var(--color-text) 82%, transparent);">{{ t.aboutP2 }}</p>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" style="padding: clamp(36px, 6vw, 72px) 0; position: relative;">
+      <div style="position: absolute; left: 3%; top: 15%; width: 24px; height: 24px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.7), rgba(110,232,91,0.12) 40%, rgba(97,236,250,0.08) 70%, transparent); border: 1px solid rgba(255,255,255,0.3); animation: bubble-float-3 6.5s ease-in-out infinite; pointer-events: none;"></div>
+      <div style="position: absolute; right: 2%; top: 50%; width: 16px; height: 16px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.6), rgba(236,93,137,0.1) 50%, transparent); border: 1px solid rgba(255,255,255,0.25); animation: bubble-float-1 7.5s ease-in-out infinite 1.2s; pointer-events: none;"></div>
+      <div style="position: absolute; left: 40%; bottom: 5%; width: 11px; height: 11px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.6), rgba(253,190,2,0.1) 50%, transparent); border: 1px solid rgba(255,255,255,0.2); animation: bubble-float-2 8s ease-in-out infinite 2.5s; pointer-events: none;"></div>
+      <div style="text-align: center; max-width: 40ch; margin: 0 auto 40px;">
+        <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin-bottom: 10px;">{{ t.svcKicker }}</span>
+        <h2 style="font-family: var(--font-heading); font-size: clamp(28px, 3.5vw, 40px); line-height: 1.1; margin: 0; letter-spacing: -0.015em;">{{ t.svcTitle }}</h2>
+      </div>
+      <div class="r2" style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 48px);">
+        <div>
+          <h3 style="font-family: var(--font-heading); font-size: 22px; margin: 0 0 18px; display: flex; align-items: center; gap: 10px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FD330A;"></span>{{ t.svcResidential }}</h3>
+          <div style="display: grid; gap: 14px;">
+            <div style="display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: start; background: var(--color-neutral-100); border: 1px solid var(--color-divider); border-radius: 16px; padding: 18px;">
+              <span style="display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, #FDBE02, #FD330A); color: #fff;"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 2l9 7.5"/><path d="M5 8.5V21h14V8.5"/><path d="M9 21v-6h6v6"/></svg></span>
+              <div><h4 style="font-family: var(--font-heading); font-size: 18px; margin: 2px 0 4px;">{{ t.s1t }}</h4><p style="font-size: 14.5px; line-height: 1.5; margin: 0; color: color-mix(in srgb, var(--color-text) 72%, transparent);">{{ t.s1d }}</p></div>
+            </div>
+            <div style="display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: start; background: var(--color-neutral-100); border: 1px solid var(--color-divider); border-radius: 16px; padding: 18px;">
+              <span style="display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, #DF046F, #BA18B2); color: #fff;"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 5.4L19 9l-5.4 1.6L12 16l-1.6-5.4L5 9l5.4-1.6z"/><path d="M18.5 14l.7 2.1 2.1.7-2.1.7-.7 2.1-.7-2.1-2.1-.7 2.1-.7z"/></svg></span>
+              <div><h4 style="font-family: var(--font-heading); font-size: 18px; margin: 2px 0 4px;">{{ t.s2t }}</h4><p style="font-size: 14.5px; line-height: 1.5; margin: 0; color: color-mix(in srgb, var(--color-text) 72%, transparent);">{{ t.s2d }}</p></div>
+            </div>
+            <div style="display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: start; background: var(--color-neutral-100); border: 1px solid var(--color-divider); border-radius: 16px; padding: 18px;">
+              <span style="display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, #6EE85B, #61ECFA); color: #fff;"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v9H2z"/><path d="M13 10h4l3 3v3h-7z"/><circle cx="6.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg></span>
+              <div><h4 style="font-family: var(--font-heading); font-size: 18px; margin: 2px 0 4px;">{{ t.s3t }}</h4><p style="font-size: 14.5px; line-height: 1.5; margin: 0; color: color-mix(in srgb, var(--color-text) 72%, transparent);">{{ t.s3d }}</p></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-family: var(--font-heading); font-size: 22px; margin: 0 0 18px; display: flex; align-items: center; gap: 10px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #0164FC;"></span>{{ t.svcCommercial }}</h3>
+          <div style="display: grid; gap: 14px;">
+            <div style="display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: start; background: var(--color-neutral-100); border: 1px solid var(--color-divider); border-radius: 16px; padding: 18px;">
+              <span style="display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, #2F8EFC, #0164FC); color: #fff;"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span>
+              <div><h4 style="font-family: var(--font-heading); font-size: 18px; margin: 2px 0 4px;">{{ t.s4t }}</h4><p style="font-size: 14.5px; line-height: 1.5; margin: 0; color: color-mix(in srgb, var(--color-text) 72%, transparent);">{{ t.s4d }}</p></div>
+            </div>
+            <div style="display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: start; background: var(--color-neutral-100); border: 1px solid var(--color-divider); border-radius: 16px; padding: 18px;">
+              <span style="display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, #EC5D89, #8132DF); color: #fff;"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16a9 9 0 0 1 18 0"/><path d="M2 16h20"/><path d="M10 8V5a2 2 0 0 1 4 0v3"/></svg></span>
+              <div><h4 style="font-family: var(--font-heading); font-size: 18px; margin: 2px 0 4px;">{{ t.s5t }}</h4><p style="font-size: 14.5px; line-height: 1.5; margin: 0; color: color-mix(in srgb, var(--color-text) 72%, transparent);">{{ t.s5d }}</p></div>
+            </div>
+            <div style="display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: start; background: var(--color-neutral-100); border: 1px solid var(--color-divider); border-radius: 16px; padding: 18px;">
+              <span style="display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, #FC9A6A, #FB5C72); color: #fff;"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M9 8h.01M15 8h.01M9 12h.01M15 12h.01M9 16h6"/></svg></span>
+              <div><h4 style="font-family: var(--font-heading); font-size: 18px; margin: 2px 0 4px;">{{ t.s6t }}</h4><p style="font-size: 14.5px; line-height: 1.5; margin: 0; color: color-mix(in srgb, var(--color-text) 72%, transparent);">{{ t.s6d }}</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE AREA -->
+    <section id="area" style="padding: clamp(36px, 6vw, 72px) 0;">
+      <div class="area-grid" style="background: var(--color-accent-2-100); border-radius: 28px; padding: clamp(28px, 4vw, 48px); display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(24px, 4vw, 48px); align-items: center;">
+        <div>
+          <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-2-700); margin-bottom: 10px;">{{ t.areaKicker }}</span>
+          <h2 style="font-family: var(--font-heading); font-size: clamp(26px, 3.2vw, 36px); line-height: 1.1; margin: 0 0 14px; letter-spacing: -0.015em;">{{ t.areaTitle }}</h2>
+          <p style="font-size: 16.5px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 80%, transparent);">{{ t.areaSub }}</p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <span style="padding: 9px 16px; border-radius: 999px; background: var(--color-bg); border: 1px solid var(--color-divider); font-size: 15px; font-weight: 600;">Fall River</span>
+          <span style="padding: 9px 16px; border-radius: 999px; background: var(--color-bg); border: 1px solid var(--color-divider); font-size: 15px; font-weight: 600;">New Bedford</span>
+          <span style="padding: 9px 16px; border-radius: 999px; background: var(--color-bg); border: 1px solid var(--color-divider); font-size: 15px; font-weight: 600;">Somerset</span>
+          <span style="padding: 9px 16px; border-radius: 999px; background: var(--color-bg); border: 1px solid var(--color-divider); font-size: 15px; font-weight: 600;">Swansea</span>
+          <span style="padding: 9px 16px; border-radius: 999px; background: var(--color-bg); border: 1px solid var(--color-divider); font-size: 15px; font-weight: 600;">Dartmouth</span>
+          <span style="padding: 9px 16px; border-radius: 999px; background: var(--color-bg); border: 1px solid var(--color-divider); font-size: 15px; font-weight: 600;">Westport</span>
+          <span style="padding: 9px 16px; border-radius: 999px; background: var(--color-bg); border: 1px solid var(--color-divider); font-size: 15px; font-weight: 600;">Tiverton</span>
+          <span style="padding: 9px 16px; border-radius: 999px; background: var(--color-bg); border: 1px solid var(--color-divider); font-size: 15px; font-weight: 600;">Freetown</span>
+          <span style="padding: 9px 16px; border-radius: 999px; background: var(--color-accent-200); color: var(--color-accent-800); font-size: 15px; font-weight: 600;">{{ t.areaMore }}</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" style="padding: clamp(36px, 6vw, 72px) 0; position: relative;">
+      <div style="position: absolute; right: 8%; top: 10%; width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.7), rgba(253,190,2,0.12) 40%, rgba(129,50,223,0.08) 70%, transparent); border: 1px solid rgba(255,255,255,0.3); animation: bubble-float-1 5.5s ease-in-out infinite 0.3s; pointer-events: none;"></div>
+      <div style="position: absolute; left: 5%; bottom: 20%; width: 15px; height: 15px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.6), rgba(97,236,250,0.12) 50%, transparent); border: 1px solid rgba(255,255,255,0.25); animation: bubble-float-3 7s ease-in-out infinite 1.5s; pointer-events: none;"></div>
+      <div style="text-align: center; max-width: 40ch; margin: 0 auto 40px;">
+        <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin-bottom: 10px;">{{ t.howKicker }}</span>
+        <h2 style="font-family: var(--font-heading); font-size: clamp(28px, 3.5vw, 40px); line-height: 1.1; margin: 0; letter-spacing: -0.015em;">{{ t.howTitle }}</h2>
+      </div>
+      <div class="r4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+        <div style="text-align: center;">
+          <span style="display: inline-grid; place-items: center; width: 56px; height: 56px; border-radius: 999px; color: #fff; font-family: var(--font-heading); font-size: 22px; background: linear-gradient(135deg, #FDBE02, #FD330A); box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);">1</span>
+          <h4 style="font-family: var(--font-heading); font-size: 18px; margin: 16px 0 6px;">{{ t.h1t }}</h4>
+          <p style="font-size: 14.5px; line-height: 1.5; margin: 0; color: color-mix(in srgb, var(--color-text) 72%, transparent);">{{ t.h1d }}</p>
+        </div>
+        <div style="text-align: center;">
+          <span style="display: inline-grid; place-items: center; width: 56px; height: 56px; border-radius: 999px; color: #fff; font-family: var(--font-heading); font-size: 22px; background: linear-gradient(135deg, #EC5D89, #DF046F); box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);">2</span>
+          <h4 style="font-family: var(--font-heading); font-size: 18px; margin: 16px 0 6px;">{{ t.h2t }}</h4>
+          <p style="font-size: 14.5px; line-height: 1.5; margin: 0; color: color-mix(in srgb, var(--color-text) 72%, transparent);">{{ t.h2d }}</p>
+        </div>
+        <div style="text-align: center;">
+          <span style="display: inline-grid; place-items: center; width: 56px; height: 56px; border-radius: 999px; color: #fff; font-family: var(--font-heading); font-size: 22px; background: linear-gradient(135deg, #2F8EFC, #0164FC); box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);">3</span>
+          <h4 style="font-family: var(--font-heading); font-size: 18px; margin: 16px 0 6px;">{{ t.h3t }}</h4>
+          <p style="font-size: 14.5px; line-height: 1.5; margin: 0; color: color-mix(in srgb, var(--color-text) 72%, transparent);">{{ t.h3d }}</p>
+        </div>
+        <div style="text-align: center;">
+          <span style="display: inline-grid; place-items: center; width: 56px; height: 56px; border-radius: 999px; color: #fff; font-family: var(--font-heading); font-size: 22px; background: linear-gradient(135deg, #997AE5, #8132DF); box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);">4</span>
+          <h4 style="font-family: var(--font-heading); font-size: 18px; margin: 16px 0 6px;">{{ t.h4t }}</h4>
+          <p style="font-size: 14.5px; line-height: 1.5; margin: 0; color: color-mix(in srgb, var(--color-text) 72%, transparent);">{{ t.h4d }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFFERENTIATORS -->
+    <section id="why" style="padding: clamp(36px, 6vw, 72px) 0; position: relative;">
+      <div style="position: absolute; right: 3%; top: 25%; width: 18px; height: 18px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.65), rgba(236,93,137,0.12) 40%, rgba(129,50,223,0.08) 70%, transparent); border: 1px solid rgba(255,255,255,0.25); animation: bubble-float-2 6s ease-in-out infinite 0.7s; pointer-events: none;"></div>
+      <div style="position: absolute; left: 8%; top: 60%; width: 12px; height: 12px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.6), rgba(253,190,2,0.1) 50%, transparent); border: 1px solid rgba(255,255,255,0.2); animation: bubble-float-1 7.5s ease-in-out infinite 2s; pointer-events: none;"></div>
+      <div style="max-width: 44ch; margin: 0 0 36px;">
+        <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin-bottom: 10px;">{{ t.whyKicker }}</span>
+        <h2 style="font-family: var(--font-heading); font-size: clamp(28px, 3.5vw, 40px); line-height: 1.1; margin: 0; letter-spacing: -0.015em;">{{ t.whyTitle }}</h2>
+      </div>
+      <div class="r2" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 32px;">
+        <div style="display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start;">
+          <span style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; background: linear-gradient(135deg, #FDBE02, #FD330A); color: #fff;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+          <div><h4 style="font-family: var(--font-heading); font-size: 18px; margin: 4px 0 5px;">{{ t.d1t }}</h4><p style="font-size: 15px; line-height: 1.55; margin: 0; color: color-mix(in srgb, var(--color-text) 76%, transparent);">{{ t.d1d }}</p></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start;">
+          <span style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; background: linear-gradient(135deg, #DF046F, #BA18B2); color: #fff;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <div><h4 style="font-family: var(--font-heading); font-size: 18px; margin: 4px 0 5px;">{{ t.d2t }}</h4><p style="font-size: 15px; line-height: 1.55; margin: 0; color: color-mix(in srgb, var(--color-text) 76%, transparent);">{{ t.d2d }}</p></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start;">
+          <span style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; background: linear-gradient(135deg, #6EE85B, #61ECFA); color: #fff;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></span>
+          <div><h4 style="font-family: var(--font-heading); font-size: 18px; margin: 4px 0 5px;">{{ t.d3t }}</h4><p style="font-size: 15px; line-height: 1.55; margin: 0; color: color-mix(in srgb, var(--color-text) 76%, transparent);">{{ t.d3d }}</p></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start;">
+          <span style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; background: linear-gradient(135deg, #2F8EFC, #0164FC); color: #fff;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <div><h4 style="font-family: var(--font-heading); font-size: 18px; margin: 4px 0 5px;">{{ t.d4t }}</h4><p style="font-size: 15px; line-height: 1.55; margin: 0; color: color-mix(in srgb, var(--color-text) 76%, transparent);">{{ t.d4d }}</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="reviews" style="padding: clamp(36px, 6vw, 72px) 0; position: relative;">
+      <div style="position: absolute; left: 4%; top: 15%; width: 20px; height: 20px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.7), rgba(110,232,91,0.1) 40%, rgba(97,236,250,0.08) 70%, transparent); border: 1px solid rgba(255,255,255,0.3); animation: bubble-float-3 6.5s ease-in-out infinite 0.4s; pointer-events: none;"></div>
+      <div style="position: absolute; right: 6%; bottom: 20%; width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.6), rgba(236,93,137,0.1) 50%, transparent); border: 1px solid rgba(255,255,255,0.25); animation: bubble-float-1 5.5s ease-in-out infinite 1.6s; pointer-events: none;"></div>
+      <div style="position: absolute; left: 50%; top: 5%; width: 10px; height: 10px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.6), rgba(253,190,2,0.12) 50%, transparent); border: 1px solid rgba(255,255,255,0.2); animation: bubble-float-2 8s ease-in-out infinite 3s; pointer-events: none;"></div>
+      <div style="text-align: center; max-width: 40ch; margin: 0 auto 40px;">
+        <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin-bottom: 10px;">{{ t.revKicker }}</span>
+        <h2 style="font-family: var(--font-heading); font-size: clamp(28px, 3.5vw, 40px); line-height: 1.1; margin: 0; letter-spacing: -0.015em;">{{ t.revTitle }}</h2>
+      </div>
+      <div class="r3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+        <figure style="margin: 0; background: var(--color-neutral-100); border: 1px solid var(--color-divider); border-radius: 20px; padding: 24px;">
+          <div style="display: flex; gap: 3px; color: #FDBD36; margin-bottom: 12px;">★★★★★</div>
+          <blockquote style="font-size: 15.5px; line-height: 1.6; margin: 0 0 16px;">{{ t.rev1 }}</blockquote>
+          <figcaption style="font-family: var(--font-heading); font-size: 15px;">{{ t.rev1by }}</figcaption>
+        </figure>
+        <figure style="margin: 0; background: var(--color-neutral-100); border: 1px solid var(--color-divider); border-radius: 20px; padding: 24px;">
+          <div style="display: flex; gap: 3px; color: #FDBD36; margin-bottom: 12px;">★★★★★</div>
+          <blockquote style="font-size: 15.5px; line-height: 1.6; margin: 0 0 16px;">{{ t.rev2 }}</blockquote>
+          <figcaption style="font-family: var(--font-heading); font-size: 15px;">{{ t.rev2by }}</figcaption>
+        </figure>
+        <figure style="margin: 0; background: var(--color-neutral-100); border: 1px solid var(--color-divider); border-radius: 20px; padding: 24px;">
+          <div style="display: flex; gap: 3px; color: #FDBD36; margin-bottom: 12px;">★★★★★</div>
+          <blockquote style="font-size: 15.5px; line-height: 1.6; margin: 0 0 16px;">{{ t.rev3 }}</blockquote>
+          <figcaption style="font-family: var(--font-heading); font-size: 15px;">{{ t.rev3by }}</figcaption>
+        </figure>
+      </div>
+      <p style="text-align: center; font-size: 13px; margin: 18px 0 0; color: color-mix(in srgb, var(--color-text) 55%, transparent);">{{ t.revNote }}</p>
+    </section>
+
+  </div>
+
+  <!-- FINAL CTA -->
+  <section style="margin: clamp(36px, 6vw, 72px) clamp(20px, 5vw, 48px) 0; position: relative;">
+    <!-- Soap bubbles -->
+    <div style="position: absolute; left: 8%; top: -20px; width: 24px; height: 24px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.7), rgba(253,190,2,0.12) 40%, rgba(236,93,137,0.08) 70%, transparent); border: 1px solid rgba(255,255,255,0.3); animation: bubble-float-1 6s ease-in-out infinite; pointer-events: none; z-index: 2;"></div>
+    <div style="position: absolute; right: 10%; top: 10px; width: 16px; height: 16px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.6), rgba(129,50,223,0.1) 50%, transparent); border: 1px solid rgba(255,255,255,0.25); animation: bubble-float-2 7s ease-in-out infinite 1s; pointer-events: none; z-index: 2;"></div>
+    <div style="position: absolute; left: 20%; bottom: -10px; width: 12px; height: 12px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.65), rgba(97,236,250,0.1) 50%, transparent); border: 1px solid rgba(255,255,255,0.2); animation: bubble-float-3 5.5s ease-in-out infinite 2s; pointer-events: none; z-index: 2;"></div>
+    <div style="max-width: 1120px; margin: 0 auto; border-radius: 32px; padding: clamp(40px, 6vw, 72px) clamp(24px, 5vw, 56px); text-align: center; background: linear-gradient(135deg, #FDBE02 0%, #EC5D89 52%, #8132DF 100%); color: #fff; box-shadow: 0 16px 40px rgba(129,50,223,0.28);">
+      <h2 style="font-family: var(--font-heading); font-size: clamp(30px, 4vw, 48px); line-height: 1.08; margin: 0 auto; max-width: 18ch; color: #fff;">{{ t.finalTitle }}</h2>
+      <p style="font-size: clamp(16px, 2vw, 19px); line-height: 1.55; margin: 18px auto 0; max-width: 44ch; color: rgba(255,255,255,0.92);">{{ t.finalSub }}</p>
+      <a href="{{ waHref }}" target="_blank" rel="noopener" onClick="{{ track }}" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; padding: 16px 32px; border-radius: 999px; color: #8132DF; background: #fff; font-family: var(--font-heading); font-size: 18px; text-decoration: none; box-shadow: 0 8px 22px rgba(0,0,0,0.16);">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.9 14.2c-.25.7-1.45 1.34-2 1.42-.53.08-1.2.11-1.94-.12a15 15 0 0 1-1.76-.65 11.5 11.5 0 0 1-4.4-3.9c-.33-.44-.85-1.28-.85-2.44 0-1.16.6-1.73.82-1.97a.86.86 0 0 1 .62-.29h.44c.14 0 .33-.05.52.4.2.48.66 1.66.72 1.78.06.12.1.26.02.42-.08.16-.12.26-.24.4l-.36.42c-.12.12-.24.25-.1.49.13.24.6.98 1.28 1.59.88.78 1.62 1.02 1.86 1.14.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.58-.19 1.28z"/></svg>
+        <span>{{ t.finalCta }}</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="max-width: 1120px; margin: 0 auto; padding: clamp(40px, 5vw, 64px) clamp(20px, 5vw, 48px);">
+    <div style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; align-items: start;">
+      <div>
+        <img src="uploads/LOGOBRUN-SHINECLEANNER.png" alt="Shine Clean Specialist" style="height: 52px; width: auto; margin-bottom: 12px;" />
+        <p style="font-size: 14px; line-height: 1.6; margin: 0; max-width: 34ch; color: color-mix(in srgb, var(--color-text) 68%, transparent);">{{ t.footTag }}</p>
+      </div>
+      <div style="display: grid; gap: 8px; font-size: 15px;">
+        <a href="{{ waHref }}" target="_blank" rel="noopener" onClick="{{ track }}" style="display: inline-flex; align-items: center; gap: 8px;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg>WhatsApp</a>
+        <a href="tel:+17744760595" style="color: var(--color-text); text-decoration: none;">(774) 476-0595</a>
+        <span style="color: color-mix(in srgb, var(--color-text) 68%, transparent);">{{ t.footArea }}</span>
+      </div>
+    </div>
+    <p style="font-size: 13px; margin: 40px 0 0; color: color-mix(in srgb, var(--color-text) 55%, transparent);">{{ t.footCopy }}</p>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1120,&quot;height&quot;:900}}">
+const COPY = {
+  en: {
+    navCta: "WhatsApp",
+    heroBadge: "Fall River, MA · up to 40 miles",
+    heroHeadline: "A spotless home or office, from someone you can trust.",
+    heroSub: "Serving up to 40 miles from Fall River. Get your free quote on WhatsApp today.",
+    heroCta: "Message us on WhatsApp",
+    heroNote: "Free quotes · usually replies same day",
+    aboutKicker: "Meet Bruna",
+    aboutTitle: "You talk to the person who does the cleaning.",
+    aboutP1: "I'm Bruna, the owner of Shine Clean Specialist. When you message, you reach me directly — not a call center. I treat every home and office as if it were my own, with careful attention to the details most people miss.",
+    aboutP2: "After years cleaning for families and businesses across the Fall River area, I built this service on one simple idea: honest work, on time, done right the first time. That's the promise behind every visit.",
+    svcKicker: "What I do",
+    svcTitle: "Cleaning for homes and businesses",
+    svcResidential: "Residential",
+    svcCommercial: "Commercial",
+    s1t: "House Cleaning", s1d: "Regular, reliable cleaning that keeps your home fresh week after week.",
+    s2t: "Deep Cleaning", s2d: "Top-to-bottom detail work for the spots a routine clean doesn't reach.",
+    s3t: "Move In / Move Out", s3d: "Leave a place spotless, or start fresh in one — ready for the keys.",
+    s4t: "Office Cleaning", s4d: "A clean, welcoming workspace your team and clients will notice.",
+    s5t: "Post Construction", s5d: "Dust, debris and residue cleared after a build or renovation.",
+    s6t: "Commercial Cleaning", s6d: "Dependable upkeep for shops, studios and commercial spaces.",
+    areaKicker: "Service area",
+    areaTitle: "Serving Fall River and up to 40 miles around.",
+    areaSub: "Not sure if you're in range? Send a message with your town and I'll let you know right away.",
+    areaMore: "+ surrounding towns",
+    howKicker: "How it works",
+    howTitle: "Four easy steps to a spotless space",
+    h1t: "Message on WhatsApp", h1d: "Tell me what you need and where you are.",
+    h2t: "Get your quote", h2d: "I reply with a clear, fair price — no surprises.",
+    h3t: "Book your day", h3d: "We pick a date and time that works for you.",
+    h4t: "Enjoy the shine", h4d: "You come back to a home or office that sparkles.",
+    whyKicker: "Why Shine Clean",
+    whyTitle: "Personal service, done with care",
+    d1t: "You deal with me, directly", d1d: "No call center, no middleman. You message Bruna and Bruna answers.",
+    d2t: "On time, every time", d2d: "I show up when I say I will and respect your schedule.",
+    d3t: "Quality products", d3d: "Effective, well-chosen cleaning products for a spotless finish.",
+    d4t: "Satisfaction guaranteed", d4d: "If something's not right, tell me and I'll make it right.",
+    revKicker: "Kind words",
+    revTitle: "What clients say",
+    rev1: "Bruna is reliable, thorough and so easy to work with. My house has never looked better.",
+    rev1by: "— Sample review",
+    rev2: "She cleaned our office after a renovation and it was spotless. Highly recommend.",
+    rev2by: "— Sample review",
+    rev3: "On time, friendly and detail-oriented. We book her every two weeks now.",
+    rev3by: "— Sample review",
+    revNote: "Sample reviews shown — real client testimonials to be added.",
+    finalTitle: "Book your cleaning today",
+    finalSub: "A quick message is all it takes. Send your town and what you need, and I'll get you a free quote.",
+    finalCta: "Message us on WhatsApp",
+    footTag: "Residential and commercial cleaning you can trust, serving the Fall River area.",
+    footArea: "Up to 40 miles from Fall River, MA",
+    footCopy: "© 2026 Shine Clean Specialist. All rights reserved."
+  },
+  pt: {
+    navCta: "WhatsApp",
+    heroBadge: "Fall River, MA · até 40 milhas",
+    heroHeadline: "Sua casa ou escritório impecável, com quem você pode confiar.",
+    heroSub: "Atendimento em até 40 milhas de Fall River. Peça seu orçamento agora pelo WhatsApp.",
+    heroCta: "Chamar no WhatsApp",
+    heroNote: "Orçamento grátis · normalmente respondo no mesmo dia",
+    aboutKicker: "Conheça a Bruna",
+    aboutTitle: "Você fala direto com quem faz a limpeza.",
+    aboutP1: "Sou a Bruna, dona da Shine Clean Specialist. Quando você manda mensagem, fala comigo — não com uma central. Cuido de cada casa e escritório como se fossem meus, com atenção aos detalhes que a maioria não percebe.",
+    aboutP2: "Depois de anos limpando para famílias e empresas na região de Fall River, criei este serviço com uma ideia simples: trabalho honesto, no horário, bem feito da primeira vez. Essa é a promessa em cada visita.",
+    svcKicker: "O que eu faço",
+    svcTitle: "Limpeza para casas e empresas",
+    svcResidential: "Residencial",
+    svcCommercial: "Comercial",
+    s1t: "Limpeza Residencial", s1d: "Limpeza regular e confiável que mantém sua casa impecável toda semana.",
+    s2t: "Limpeza Pesada", s2d: "Limpeza detalhada de cima a baixo, nos cantos que a rotina não alcança.",
+    s3t: "Mudança (Entrada/Saída)", s3d: "Deixe o imóvel impecável, ou comece do zero em um novo — pronto para morar.",
+    s4t: "Limpeza de Escritório", s4d: "Um ambiente limpo e acolhedor que sua equipe e clientes vão notar.",
+    s5t: "Pós-Obra", s5d: "Poeira, entulho e resíduos removidos depois de obra ou reforma.",
+    s6t: "Limpeza Comercial", s6d: "Manutenção confiável para lojas, estúdios e espaços comerciais.",
+    areaKicker: "Área de atendimento",
+    areaTitle: "Atendo Fall River e até 40 milhas ao redor.",
+    areaSub: "Não sabe se está na área? Mande uma mensagem com sua cidade e eu confirmo na hora.",
+    areaMore: "+ cidades vizinhas",
+    howKicker: "Como funciona",
+    howTitle: "Quatro passos simples até tudo impecável",
+    h1t: "Chama no WhatsApp", h1d: "Me conta o que precisa e onde você está.",
+    h2t: "Recebe o orçamento", h2d: "Respondo com um preço claro e justo — sem surpresas.",
+    h3t: "Agenda o dia", h3d: "A gente marca a data e o horário que funciona pra você.",
+    h4t: "Aproveita o brilho", h4d: "Você volta pra uma casa ou escritório reluzente.",
+    whyKicker: "Por que a Shine Clean",
+    whyTitle: "Atendimento pessoal, feito com capricho",
+    d1t: "Você fala comigo, direto", d1d: "Sem central, sem intermediário. Você chama a Bruna e a Bruna responde.",
+    d2t: "Pontualidade sempre", d2d: "Chego na hora combinada e respeito a sua agenda.",
+    d3t: "Produtos de qualidade", d3d: "Produtos de limpeza eficazes e bem escolhidos para um acabamento impecável.",
+    d4t: "Satisfação garantida", d4d: "Se algo não ficou certo, me avisa que eu resolvo.",
+    revKicker: "Palavras gentis",
+    revTitle: "O que dizem os clientes",
+    rev1: "A Bruna é confiável, caprichosa e muito fácil de trabalhar. Minha casa nunca esteve tão bem.",
+    rev1by: "— Avaliação de exemplo",
+    rev2: "Ela limpou nosso escritório depois da reforma e ficou impecável. Recomendo muito.",
+    rev2by: "— Avaliação de exemplo",
+    rev3: "Pontual, simpática e atenta aos detalhes. Agora agendamos a cada duas semanas.",
+    rev3by: "— Avaliação de exemplo",
+    revNote: "Avaliações de exemplo — depoimentos reais de clientes serão adicionados.",
+    finalTitle: "Agende sua limpeza hoje",
+    finalSub: "Basta uma mensagem rápida. Manda sua cidade e o que você precisa, e eu passo um orçamento grátis.",
+    finalCta: "Chamar no WhatsApp",
+    footTag: "Limpeza residencial e comercial de confiança, atendendo a região de Fall River.",
+    footArea: "Até 40 milhas de Fall River, MA",
+    footCopy: "© 2026 Shine Clean Specialist. Todos os direitos reservados."
+  }
+};
+
+const WA_MSG = {
+  en: "Hi! I saw your website and I'd like a free cleaning quote.",
+  pt: "Olá! Vi o site e gostaria de um orçamento de limpeza."
+};
+
+class Component extends DCLogic {
+  state = { lang: (typeof navigator !== "undefined" && (navigator.language || "").toLowerCase().startsWith("pt")) ? "pt" : "en" };
+
+  track = () => {
+    try {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "whatsapp_click", lang: this.state.lang });
+      if (typeof window.gtag === "function") window.gtag("event", "whatsapp_click", { lang: this.state.lang });
+    } catch (e) {}
+  };
+
+  renderVals() {
+    const lang = this.state.lang;
+    const t = COPY[lang];
+    const pillBase = "border: 0; cursor: pointer; font-family: var(--font-heading); font-size: 13px; padding: 6px 14px; border-radius: 999px; transition: all .15s;";
+    const active = pillBase + " background: linear-gradient(135deg, #FDBE02, #EC5D89, #8132DF); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);";
+    const idle = pillBase + " background: transparent; color: color-mix(in srgb, var(--color-text) 70%, transparent);";
+    return {
+      t,
+      waHref: "https://wa.me/17744760595?text=" + encodeURIComponent(WA_MSG[lang]),
+      track: this.track,
+      isEn: lang === "en",
+      isPt: lang === "pt",
+      enBtnStyle: lang === "en" ? active : idle,
+      ptBtnStyle: lang === "pt" ? active : idle,
+      setEn: () => this.setState({ lang: "en" }),
+      setPt: () => this.setState({ lang: "pt" })
+    };
+  }
+}
+</script>
+</body>
+</html>
