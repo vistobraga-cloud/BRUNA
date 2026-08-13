@@ -88,7 +88,7 @@ const BEFORE_AFTER_HTML = `
       <p style="font-size:16px;margin:0;color:color-mix(in srgb, var(--color-text) 65%, transparent);"><span data-i18n="baSub"></span></p>
     </div>
     <div class="ba-grid fade-in">
-      ${['cozinha','quarto','banheiro1','banheiro2'].map((k,i) => {
+      ${['banheiro2','quarto','banheiro1','cozinha'].map((k) => {
         const ext = k === 'quarto' ? 'jpeg' : 'png';
         // kitchen + bathtub landscape; bedroom + shower portrait
         const ratio = (k === 'quarto' || k === 'banheiro2') ? '3/4' : '4/3';
@@ -101,7 +101,7 @@ const BEFORE_AFTER_HTML = `
           <span class="ba-badge ba-badge-after" data-i18n="baLabelAfter"></span>
           <div class="ba-handle"><div class="ba-knob" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l-5 6 5 6v-4h6v4l5-6-5-6v4H9z"/></svg></div></div>
         </div>
-        <figcaption class="ba-caption" data-i18n="baPair${i+1}"></figcaption>
+        <figcaption class="ba-caption" data-i18n="baPair-${k}"></figcaption>
       </figure>`;
       }).join('')}
     </div>
@@ -126,10 +126,10 @@ Object.assign(COPY.en, {
   baSub: "Drag the slider on each photo to reveal the after.",
   baLabelBefore: "Before",
   baLabelAfter: "After",
-  baPair1: "Kitchen",
-  baPair2: "Bedroom",
-  baPair3: "Bathtub",
-  baPair4: "Shower"
+  "baPair-cozinha": "Kitchen",
+  "baPair-quarto": "Bedroom",
+  "baPair-banheiro1": "Bathtub",
+  "baPair-banheiro2": "Shower"
 });
 Object.assign(COPY.pt, {
   baKicker: "Transformações reais",
@@ -137,10 +137,10 @@ Object.assign(COPY.pt, {
   baSub: "Arraste o controle em cada foto para revelar o depois.",
   baLabelBefore: "Antes",
   baLabelAfter: "Depois",
-  baPair1: "Cozinha",
-  baPair2: "Quarto",
-  baPair3: "Banheira",
-  baPair4: "Box"
+  "baPair-cozinha": "Cozinha",
+  "baPair-quarto": "Quarto",
+  "baPair-banheiro1": "Banheira",
+  "baPair-banheiro2": "Box"
 });
 
 const langBtnActive = "background: linear-gradient(135deg, #FDBE02, #EC5D89, #8132DF); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);";
