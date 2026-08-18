@@ -48,7 +48,7 @@
 }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body { margin: 0; }
+body { margin: 0; overflow-x: hidden; }
 .sc a { color: var(--color-accent-700); text-underline-offset: 3px; }
 .sc a:hover { color: var(--color-accent-800); }
 @keyframes bub1 { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-20px) scale(1.06); } }
@@ -111,6 +111,23 @@ body { margin: 0; }
 
 /* Nav is now position:fixed — reserve space so hero content isn't hidden. */
 body { padding-top: 68px; }
+
+/* Hero scroll-scrubbed frame sequence: #hero-scrub is tall so scrolling
+   through it drives the frame index; #hero-scrub-sticky pins in place
+   for that scroll distance, then releases into the About section. */
+#hero-scrub { position: relative; height: 350vh; }
+#hero-scrub-sticky {
+  position: sticky; top: 0; height: 100vh; height: 100dvh;
+  overflow: hidden; background: var(--color-bg);
+}
+#hero-frame-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  #hero-scrub { height: auto; }
+  #hero-scrub-sticky { position: relative; height: auto; min-height: 100vh; min-height: 100dvh; }
+}
 
 /* Floating WhatsApp button — always visible, tap-friendly, doesn't obscure content */
 #wa-float {
@@ -194,7 +211,7 @@ body { padding-top: 68px; }
 </head>
 <body>
 <div id="scroll-progress" aria-hidden="true"></div>
-<div class="sc" style="color: var(--color-text); font-family: var(--font-body); min-height: 100vh; overflow-x: hidden;">
+<div class="sc" style="color: var(--color-text); font-family: var(--font-body); min-height: 100vh;">
 
   <!-- NAV -->
   <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 2px clamp(16px, 4vw, 48px); background: rgba(255,255,255,0.82); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(0,0,0,0.06);">
@@ -215,35 +232,41 @@ body { padding-top: 68px; }
 
   <!-- ═══ SECTION 1: HERO — warm cream bg ═══ -->
   <span id="top"></span>
-  <section id="hero" style="position: relative; background: var(--color-bg); overflow: hidden;">
-    <!-- Decorative gradient circles -->
-    <div style="position: absolute; right: -120px; top: -60px; width: 400px; height: 400px; border-radius: 50%; background: linear-gradient(135deg, rgba(47,142,252,0.12), rgba(236,93,137,0.08)); pointer-events: none;"></div>
-    <div style="position: absolute; left: -80px; bottom: -40px; width: 220px; height: 220px; border-radius: 50%; background: linear-gradient(135deg, rgba(129,50,223,0.06), rgba(97,236,250,0.06)); pointer-events: none;"></div>
-    <!-- Soap bubbles -->
-    <div style="position: absolute; right: 10%; top: 16%; width: 30px; height: 30px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.8), rgba(253,190,2,0.15) 40%, rgba(236,93,137,0.1) 70%, rgba(129,50,223,0.06)); border: 1px solid rgba(255,255,255,0.4); animation: bub1 5s ease-in-out infinite; pointer-events: none;"></div>
-    <div style="position: absolute; right: 20%; top: 45%; width: 18px; height: 18px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.7), rgba(110,232,91,0.1) 40%, rgba(97,236,250,0.08) 70%, transparent); border: 1px solid rgba(255,255,255,0.3); animation: bub2 6.5s ease-in-out infinite 0.8s; pointer-events: none;"></div>
-    <div style="position: absolute; right: 5%; top: 60%; width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.6), rgba(236,93,137,0.1) 50%, transparent); border: 1px solid rgba(255,255,255,0.25); animation: bub3 7s ease-in-out infinite 1.5s; pointer-events: none;"></div>
-    <div style="position: absolute; left: 12%; top: 28%; width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.7), rgba(129,50,223,0.08) 40%, rgba(97,236,250,0.06) 70%, transparent); border: 1px solid rgba(255,255,255,0.3); animation: bub2 7.5s ease-in-out infinite 0.5s; pointer-events: none;"></div>
-    <div style="position: absolute; right: 35%; top: 10%; width: 10px; height: 10px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.7), rgba(253,190,2,0.12) 50%, transparent); border: 1px solid rgba(255,255,255,0.2); animation: bub1 8s ease-in-out infinite 2.2s; pointer-events: none;"></div>
-    <div style="position: absolute; right: 42%; bottom: 12%; width: 20px; height: 20px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.65), rgba(253,190,2,0.08) 40%, rgba(236,93,137,0.06) 70%, transparent); border: 1px solid rgba(255,255,255,0.25); animation: bub3 6s ease-in-out infinite 3s; pointer-events: none;"></div>
-    <div style="max-width: 1120px; margin: 0 auto; padding: clamp(56px, 9vw, 110px) clamp(20px, 5vw, 48px) clamp(64px, 8vw, 100px); position: relative; z-index: 1;">
-      <div style="max-width: 720px;">
-        <span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: linear-gradient(135deg, rgba(253,190,2,0.18), rgba(236,93,137,0.14)); color: var(--color-accent-800); font-size: 13px; font-weight: 600; letter-spacing: 0.02em;"><span data-i18n="heroBadge"></span></span>
-        <h1 style="font-family: var(--font-heading); font-size: clamp(40px, 6.5vw, 72px); line-height: 1.04; margin: 22px 0 0; letter-spacing: -0.02em; max-width: 16ch;"><span data-i18n="heroHeadline"></span></h1>
-        <p style="font-size: clamp(17px, 2vw, 20px); line-height: 1.6; margin: 22px 0 0; max-width: 46ch; color: color-mix(in srgb, var(--color-text) 78%, transparent);"><span data-i18n="heroSub"></span></p>
-        <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; align-items: center;">
-          <a href="#" data-wa-href="1" target="_blank" rel="noopener"  style="display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; border-radius: 999px; color: #fff; font-family: var(--font-heading); font-size: 18px; text-decoration: none; background: linear-gradient(135deg, #2F8EFC, #EC5D89, #8132DF); background-size: 200% 200%; animation: gshift 4s ease infinite; box-shadow: 0 8px 28px rgba(129,50,223,0.32), inset 0 1px 0 rgba(255,255,255,0.45); position: relative; overflow: hidden;">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.9 14.2c-.25.7-1.45 1.34-2 1.42-.53.08-1.2.11-1.94-.12a15 15 0 0 1-1.76-.65 11.5 11.5 0 0 1-4.4-3.9c-.33-.44-.85-1.28-.85-2.44 0-1.16.6-1.73.82-1.97a.86.86 0 0 1 .62-.29h.44c.14 0 .33-.05.52.4.2.48.66 1.66.72 1.78.06.12.1.26.02.42-.08.16-.12.26-.24.4l-.36.42c-.12.12-.24.25-.1.49.13.24.6.98 1.28 1.59.88.78 1.62 1.02 1.86 1.14.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.58-.19 1.28z"/></svg>
-            <span><span data-i18n="heroCta"></span></span>
-          </a>
-          <span style="font-size: 15px; color: color-mix(in srgb, var(--color-text) 58%, transparent);"><span data-i18n="heroNote"></span></span>
+  <section id="hero" style="position: relative;">
+    <div id="hero-scrub">
+      <div id="hero-scrub-sticky">
+        <img id="hero-frame-img" src="uploads/hero-frames/frame-001.jpg" alt="" aria-hidden="true">
+        <!-- Decorative gradient circles -->
+        <div style="position: absolute; right: -120px; top: -60px; width: 400px; height: 400px; border-radius: 50%; background: linear-gradient(135deg, rgba(47,142,252,0.12), rgba(236,93,137,0.08)); pointer-events: none;"></div>
+        <div style="position: absolute; left: -80px; bottom: -40px; width: 220px; height: 220px; border-radius: 50%; background: linear-gradient(135deg, rgba(129,50,223,0.06), rgba(97,236,250,0.06)); pointer-events: none;"></div>
+        <!-- Soap bubbles -->
+        <div style="position: absolute; right: 10%; top: 16%; width: 30px; height: 30px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.8), rgba(253,190,2,0.15) 40%, rgba(236,93,137,0.1) 70%, rgba(129,50,223,0.06)); border: 1px solid rgba(255,255,255,0.4); animation: bub1 5s ease-in-out infinite; pointer-events: none;"></div>
+        <div style="position: absolute; right: 20%; top: 45%; width: 18px; height: 18px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.7), rgba(110,232,91,0.1) 40%, rgba(97,236,250,0.08) 70%, transparent); border: 1px solid rgba(255,255,255,0.3); animation: bub2 6.5s ease-in-out infinite 0.8s; pointer-events: none;"></div>
+        <div style="position: absolute; right: 5%; top: 60%; width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.6), rgba(236,93,137,0.1) 50%, transparent); border: 1px solid rgba(255,255,255,0.25); animation: bub3 7s ease-in-out infinite 1.5s; pointer-events: none;"></div>
+        <div style="position: absolute; left: 12%; top: 28%; width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.7), rgba(129,50,223,0.08) 40%, rgba(97,236,250,0.06) 70%, transparent); border: 1px solid rgba(255,255,255,0.3); animation: bub2 7.5s ease-in-out infinite 0.5s; pointer-events: none;"></div>
+        <div style="position: absolute; right: 35%; top: 10%; width: 10px; height: 10px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.7), rgba(253,190,2,0.12) 50%, transparent); border: 1px solid rgba(255,255,255,0.2); animation: bub1 8s ease-in-out infinite 2.2s; pointer-events: none;"></div>
+        <div style="position: absolute; right: 42%; bottom: 12%; width: 20px; height: 20px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.65), rgba(253,190,2,0.08) 40%, rgba(236,93,137,0.06) 70%, transparent); border: 1px solid rgba(255,255,255,0.25); animation: bub3 6s ease-in-out infinite 3s; pointer-events: none;"></div>
+        <div style="max-width: 1120px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); position: absolute; left: 0; top: 50%; width: 100%; transform: translateY(-50%); z-index: 1;">
+          <div style="max-width: 640px; background: rgba(255,255,255,0.16); backdrop-filter: blur(20px) saturate(130%); -webkit-backdrop-filter: blur(20px) saturate(130%); border: 1px solid rgba(255,255,255,0.35); border-radius: 16px; padding: clamp(14px, 2vw, 20px); box-shadow: 0 8px 32px rgba(0,0,0,0.18);">
+            <h1 style="font-family: var(--font-heading); font-size: clamp(40px, 6.5vw, 72px); line-height: 1.04; margin: 0; letter-spacing: -0.02em;"><span data-i18n="heroHeadline"></span></h1>
+            <p style="font-size: clamp(17px, 2vw, 20px); line-height: 1.6; margin: 22px 0 0; max-width: 46ch; color: color-mix(in srgb, var(--color-text) 78%, transparent);"><span data-i18n="heroSub"></span></p>
+            <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 22px; align-items: center; justify-content: center;">
+              <a href="#" data-wa-href="1" target="_blank" rel="noopener"  style="display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; border-radius: 999px; color: #fff; font-family: var(--font-heading); font-size: 18px; text-decoration: none; background: linear-gradient(135deg, #2F8EFC, #EC5D89, #8132DF); background-size: 200% 200%; animation: gshift 4s ease infinite; box-shadow: 0 8px 28px rgba(129,50,223,0.32), inset 0 1px 0 rgba(255,255,255,0.45); position: relative; overflow: hidden;">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.9 14.2c-.25.7-1.45 1.34-2 1.42-.53.08-1.2.11-1.94-.12a15 15 0 0 1-1.76-.65 11.5 11.5 0 0 1-4.4-3.9c-.33-.44-.85-1.28-.85-2.44 0-1.16.6-1.73.82-1.97a.86.86 0 0 1 .62-.29h.44c.14 0 .33-.05.52.4.2.48.66 1.66.72 1.78.06.12.1.26.02.42-.08.16-.12.26-.24.4l-.36.42c-.12.12-.24.25-.1.49.13.24.6.98 1.28 1.59.88.78 1.62 1.02 1.86 1.14.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.58-.19 1.28z"/></svg>
+                <span><span data-i18n="heroCta"></span></span>
+              </a>
+            </div>
+          </div>
+          <div style="max-width: 640px; text-align: center; margin-top: 14px;">
+            <span data-i18n="heroNote" style="display: inline-flex; align-items: center; padding: 8px 16px; border-radius: 999px; background: rgba(255,255,255,0.75); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.45); box-shadow: 0 4px 14px rgba(0,0,0,0.12); font-size: 13px; font-weight: 600; color: var(--color-accent-800);"></span>
+          </div>
         </div>
+        <!-- Wave divider hero → about -->
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="display: block; width: 100%; height: 60px; position: absolute; left: 0; bottom: 0; z-index: 1;">
+          <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80Z" fill="#ffffff"/>
+        </svg>
       </div>
     </div>
-    <!-- Wave divider hero → about -->
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="display: block; width: 100%; height: 60px; position: relative; z-index: 1;">
-      <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80Z" fill="#ffffff"/>
-    </svg>
   </section>
 
   <!-- ═══ SECTION 2: ABOUT — white bg ═══ -->
@@ -638,6 +661,49 @@ body { padding-top: 68px; }
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   document.querySelectorAll(".sc .fade-in").forEach(el => io.observe(el));
+
+  // Hero scroll-scrubbed frame sequence.
+  (() => {
+    const TOTAL_FRAMES = 40;
+    const scrubEl = document.getElementById("hero-scrub");
+    const frameImg = document.getElementById("hero-frame-img");
+    if (!scrubEl || !frameImg) return;
+
+    const frameSrc = n => `uploads/hero-frames/frame-${String(n).padStart(3, "0")}.jpg`;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduceMotion) {
+      frameImg.src = frameSrc(TOTAL_FRAMES);
+      return;
+    }
+
+    const frames = [];
+    for (let n = 1; n <= TOTAL_FRAMES; n++) {
+      const img = new Image();
+      img.src = frameSrc(n);
+      frames.push(img);
+    }
+
+    let currentFrame = 1;
+    let ticking = false;
+    function updateFrame() {
+      ticking = false;
+      const rect = scrubEl.getBoundingClientRect();
+      const scrollable = scrubEl.offsetHeight - window.innerHeight;
+      let progress = scrollable > 0 ? -rect.top / scrollable : 0;
+      if (progress < 0) progress = 0; else if (progress > 1) progress = 1;
+      const n = 1 + Math.round(progress * (TOTAL_FRAMES - 1));
+      if (n !== currentFrame) {
+        currentFrame = n;
+        frameImg.src = frames[n - 1].src;
+      }
+    }
+    window.addEventListener("scroll", () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(updateFrame); }
+    }, { passive: true });
+    window.addEventListener("resize", updateFrame);
+    updateFrame();
+  })();
 
   render();
 })();
