@@ -115,7 +115,7 @@ body { padding-top: 68px; }
 /* Hero scroll-scrubbed frame sequence: #hero-scrub is tall so scrolling
    through it drives the frame index; #hero-scrub-sticky pins in place
    for that scroll distance, then releases into the About section. */
-#hero-scrub { position: relative; height: 350vh; }
+#hero-scrub { position: relative; height: 260vh; }
 #hero-scrub-sticky {
   position: sticky; top: 0; height: 100vh; height: 100dvh;
   overflow: hidden; background: var(--color-bg);
@@ -664,7 +664,7 @@ body { padding-top: 68px; }
 
   // Hero scroll-scrubbed frame sequence.
   (() => {
-    const TOTAL_FRAMES = 40;
+    const TOTAL_FRAMES = 28;
     const scrubEl = document.getElementById("hero-scrub");
     const frameImg = document.getElementById("hero-frame-img");
     if (!scrubEl || !frameImg) return;
